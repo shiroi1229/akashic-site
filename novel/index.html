@@ -46,19 +46,59 @@ color:var(--ink);text-decoration:none;}
 ul.toc a:hover{color:var(--gold);}
 ul.toc .d{color:var(--faint);font-size:12.5px;white-space:nowrap;}
 footer{text-align:center;color:var(--faint);font-size:12px;padding:30px;}
-.yt-cta{display:block;margin:52px auto 8px;max-width:38em;text-decoration:none;
-border:1px solid var(--gold-d);border-radius:14px;padding:22px 26px;
-background:linear-gradient(180deg,rgba(244,217,138,.08),transparent);
-transition:border-color .2s,transform .2s;}
-.yt-cta:hover{border-color:var(--gold);transform:translateY(-2px);}
-.yt-cta .k{color:var(--gold);font-size:19px;font-weight:600;letter-spacing:.03em;}
-.yt-cta .s{color:var(--dim);font-size:13px;margin-top:6px;line-height:1.6;}
-.yt-ep{display:inline-block;margin-top:12px;color:var(--gold);font-size:14px;
-border:1px solid var(--line);border-radius:8px;padding:8px 16px;text-decoration:none;}
-.yt-ep:hover{border-color:var(--gold);}
+/* ---- シネマティック YouTube ヒーロー ---- */
+.yt-hero{position:relative;display:block;margin:60px auto;max-width:40em;
+text-decoration:none;overflow:hidden;border-radius:22px;isolation:isolate;
+background:linear-gradient(155deg,#14060a 0%,#0a0b12 55%,#0d0a14 100%);
+border:1px solid rgba(255,60,80,.22);padding:44px 40px;
+box-shadow:0 24px 70px -30px rgba(255,30,60,.5),inset 0 1px 0 rgba(255,255,255,.05);
+transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;}
+.yt-hero::before{content:"";position:absolute;inset:-40%;z-index:-1;
+background:conic-gradient(from 0deg,transparent,rgba(255,40,70,.18),transparent 40%,rgba(244,217,138,.12),transparent 70%);
+animation:ytspin 14s linear infinite;}
+.yt-hero::after{content:"";position:absolute;left:-20%;top:-60%;width:70%;height:200%;z-index:-1;
+background:radial-gradient(ellipse,rgba(255,45,70,.22),transparent 60%);filter:blur(20px);}
+.yt-hero:hover{transform:translateY(-4px) scale(1.008);
+box-shadow:0 34px 90px -28px rgba(255,40,70,.65),inset 0 1px 0 rgba(255,255,255,.08);}
+@keyframes ytspin{to{transform:rotate(360deg);}}
+.yt-hero-row{display:flex;align-items:center;gap:26px;}
+.yt-play{position:relative;flex:none;width:74px;height:74px;border-radius:50%;
+background:linear-gradient(180deg,#ff2d4a,#d80f2e);display:grid;place-items:center;
+box-shadow:0 8px 30px rgba(255,45,70,.55);}
+.yt-play svg{width:30px;height:30px;margin-left:4px;fill:#fff;}
+.yt-play::before,.yt-play::after{content:"";position:absolute;inset:0;border-radius:50%;
+border:2px solid rgba(255,45,70,.55);animation:ytpulse 2.6s ease-out infinite;}
+.yt-play::after{animation-delay:1.3s;}
+@keyframes ytpulse{0%{transform:scale(1);opacity:.7;}100%{transform:scale(1.9);opacity:0;}}
+.yt-hero .eyebrow{font-family:var(--mono,ui-monospace,monospace);font-size:11px;
+letter-spacing:.34em;text-transform:uppercase;color:#ff5c73;margin-bottom:10px;
+display:flex;align-items:center;gap:9px;}
+.yt-hero .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;
+background:#ff2d4a;box-shadow:0 0 10px #ff2d4a;animation:ytlive 1.6s ease-in-out infinite;}
+@keyframes ytlive{50%{opacity:.35;}}
+.yt-hero h2{font-size:30px;line-height:1.2;font-weight:600;color:#fff;
+letter-spacing:.02em;margin:0;}
+.yt-hero h2 b{background:linear-gradient(180deg,#f4d98a,#c9a24a);
+-webkit-background-clip:text;background-clip:text;color:transparent;}
+.yt-hero .s{color:#b9bccc;font-size:13.5px;line-height:1.7;margin-top:12px;}
+.yt-hero .btn svg,.yt-ep svg{width:15px;height:15px;fill:#fff;}
+.yt-hero .btn{display:inline-flex;align-items:center;gap:9px;margin-top:22px;
+font-size:14px;font-weight:600;color:#fff;letter-spacing:.04em;
+background:linear-gradient(180deg,#ff2d4a,#d80f2e);border-radius:999px;
+padding:12px 26px;box-shadow:0 10px 26px -8px rgba(255,45,70,.7);
+transition:transform .2s,box-shadow .2s;}
+.yt-hero:hover .btn{transform:translateY(-1px);box-shadow:0 14px 32px -8px rgba(255,45,70,.85);}
+.yt-ep{display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:#fff;
+font-size:13px;font-weight:600;background:rgba(255,45,70,.14);
+border:1px solid rgba(255,60,80,.4);border-radius:999px;padding:9px 20px;text-decoration:none;
+transition:background .2s;}
+.yt-ep:hover{background:rgba(255,45,70,.26);}
 .ytbar{border-bottom:1px solid var(--line);}
 .ytbar a{color:var(--gold);font-size:13px;letter-spacing:.06em;}
+@media(max-width:600px){.yt-hero-row{flex-direction:column;text-align:center;}
+.yt-hero .eyebrow{justify-content:center;}}
+@media(prefers-reduced-motion:reduce){.yt-hero::before,.yt-play::before,.yt-play::after,.yt-hero .eyebrow::before{animation:none;}}
 </style></head><body>
 <header class="ytbar"><a href="./">アカシック・レコード 25xx</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/@shiroi1229_studio">YouTube @shiroi1229_studio</a></header>
-<main><h1>アカシック・レコード 25xx</h1><div class='meta'>シロイ・サーガ『25xx アカシック・レコード』連載小説。</div><a class="yt-cta" href="https://www.youtube.com/@shiroi1229_studio"><div class="k">▶ 本編アニメを YouTube で観る</div><div class="s">映像・声・音楽で描かれる『アカシック・レコード』はチャンネルで公開中</div></a><ul class='toc'><li><a href="ep01-ch1.html"><span>第1章　始原の雪、知の種火</span><span class="d">2026-07-21</span></a></li></ul></main>
+<main><h1>アカシック・レコード 25xx</h1><div class='meta'>シロイ・サーガ『25xx アカシック・レコード』連載小説。</div><a class="yt-hero" href="https://www.youtube.com/@shiroi1229_studio" target="_blank" rel="noopener"><div class="yt-hero-row"><div class="yt-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div><div><div class="eyebrow">Now Streaming · YouTube</div><h2>本編は、<b>映像</b>で。</h2><div class="s">声・音楽・アニメーションで動き出す『アカシック・レコード』。すべての物語は YouTube で公開中。</div><span class="btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg> チャンネルを観る</span></div></div></a><ul class='toc'><li><a href="ep01-ch1.html"><span>第1章　始原の雪、知の種火</span><span class="d">2026-07-21</span></a></li></ul></main>
 <footer>アカシック・レコード 25xx</footer></body></html>
