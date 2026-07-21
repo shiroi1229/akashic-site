@@ -1,16 +1,9 @@
 [
  {
-  "asset_id": "ast_8d28658dfa54",
-  "slug": "ast_8d28658dfa54",
-  "title": "【スモークテスト】何もない時",
-  "source_ref": "saga/時の始まり/何もない時",
-  "published_at": "2026-07-21T11:47:39+00:00"
- },
- {
   "asset_id": "ast_b21fbbf4f9f9",
   "slug": "ep01-ch1",
   "title": "第1章　始原の雪、知の種火",
   "source_ref": "personaforge/episode-source/novel/エピソード01_第1章.txt",
-  "published_at": "2026-07-21T12:20:22+00:00"
+  "published_at": "2026-07-21T12:25:19+00:00"
  }
 ]

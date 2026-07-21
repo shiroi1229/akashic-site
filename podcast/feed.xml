@@ -10,13 +10,6 @@
   <itunes:category text="Fiction"/>
   <itunes:explicit>false</itunes:explicit>
   <itunes:image href="https://shiroi1229.github.io/akashic-site/podcast/cover.jpg"/>
-  <item>
-   <title>【スモークテスト】第0話</title>
-   <description>【スモークテスト】第0話</description>
-   <enclosure url="https://shiroi1229.github.io/akashic-site/podcast/episodes/ast_788d19d29848.mp3" length="24493" type="audio/mpeg"/>
-   <guid isPermaLink="false">akasha:ast_788d19d29848</guid>
-   <pubDate>Tue, 21 Jul 2026 11:47:39 +0000</pubDate>
-   <itunes:duration>00:03</itunes:duration>
-  </item>
+
  </channel>
 </rss>
