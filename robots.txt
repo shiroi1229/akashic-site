@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shiroi1229.github.io/akashic-site/sitemap.xml
