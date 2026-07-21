@@ -1,1 +1,13 @@
-[]
+[
+ {
+  "asset_id": "ast_260d9ecc53a8",
+  "title": "第1章　始原の雪、知の種火",
+  "description": "崩壊した世界の寺院で、名もなき少女が知の種火に出会う。シロイ・サーガ『アカシック・レコード 25xx』第1章の朗読劇。",
+  "file": "ast_260d9ecc53a8.mp3",
+  "bytes": 86972333,
+  "mime": "audio/mpeg",
+  "duration": 5435,
+  "source_ref": "personaforge/episode-source/novel/エピソード01_第1章.txt",
+  "published_at": "2026-07-21T12:34:53+00:00"
+ }
+]

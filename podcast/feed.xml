@@ -4,12 +4,23 @@
   <title>アカシック・レコード 25xx 音声劇</title>
   <link>https://shiroi1229.github.io/akashic-site/podcast/</link>
   <atom:link href="https://shiroi1229.github.io/akashic-site/podcast/feed.xml" rel="self" type="application/rss+xml"/>
-  <description>シロイ・サーガ『25xx アカシック・レコード』の音声ドラマ連載。</description>
+  <description>シロイ・サーガ『25xx アカシック・レコード』の音声ドラマ連載。
+
+▶ 本編アニメを YouTube で観る https://www.youtube.com/@shiroi1229_studio</description>
   <language>ja</language>
   <itunes:author>Shiroi Saga</itunes:author>
   <itunes:category text="Fiction"/>
   <itunes:explicit>false</itunes:explicit>
   <itunes:image href="https://shiroi1229.github.io/akashic-site/podcast/cover.jpg"/>
+  <item>
+   <title>第1章　始原の雪、知の種火</title>
+   <description>崩壊した世界の寺院で、名もなき少女が知の種火に出会う。シロイ・サーガ『アカシック・レコード 25xx』第1章の朗読劇。
 
+▶ 本編アニメを YouTube で観る https://www.youtube.com/@shiroi1229_studio</description>
+   <enclosure url="https://shiroi1229.github.io/akashic-site/podcast/episodes/ast_260d9ecc53a8.mp3" length="86972333" type="audio/mpeg"/>
+   <guid isPermaLink="false">akasha:ast_260d9ecc53a8</guid>
+   <pubDate>Tue, 21 Jul 2026 12:34:53 +0000</pubDate>
+   <itunes:duration>90:35</itunes:duration>
+  </item>
  </channel>
 </rss>
