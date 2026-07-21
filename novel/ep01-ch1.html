@@ -13,19 +13,47 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="第1章　始原の雪、知の種火｜アカシック・レコード 25xx">
 <meta name="twitter:description" content="退屈な聖域時は２５ＸＸ（２・５・エックス・エックス）年。世界はとうに崩壊し、文明の残骸が風に舞っている。それでも山は黙してそびえ、その頂――空に最も近き地に、ひとつの寺院が奇跡のように残されていた。空はどこまでも鈍く灰色に沈み、冷たい霧…">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "第1章　始原の雪、知の種火", "inLanguage": "ja", "url": "https://shiroi1229.github.io/akashic-site/novel/ep01-ch1.html", "datePublished": "2026-07-21T12:41:48+00:00", "author": {"@type": "Person", "name": "Shiroi Saga"}, "publisher": {"@type": "Organization", "name": "アカシック・レコード 25xx"}, "isPartOf": {"@type": "Book", "name": "アカシック・レコード 25xx", "url": "https://shiroi1229.github.io/akashic-site/novel/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "第1章　始原の雪、知の種火", "inLanguage": "ja", "url": "https://shiroi1229.github.io/akashic-site/novel/ep01-ch1.html", "datePublished": "2026-07-21T12:55:26+00:00", "author": {"@type": "Person", "name": "Shiroi Saga"}, "publisher": {"@type": "Organization", "name": "アカシック・レコード 25xx"}, "isPartOf": {"@type": "Book", "name": "アカシック・レコード 25xx", "url": "https://shiroi1229.github.io/akashic-site/novel/"}}</script>
 <style>
 :root{--bg:#0a0b12;--panel:#12141f;--line:rgba(174,182,200,.15);--ink:#d8dbe6;
 --dim:#9298aa;--faint:#646a7e;--gold:#f4d98a;--gold-d:#c9a24a;}
-@media(prefers-color-scheme:light){:root{--bg:#faf9f6;--panel:#fff;--line:rgba(28,32,48,.14);
---ink:#22232e;--dim:#4c5468;--faint:#828aa0;--gold:#9a7a2c;--gold-d:#7c601f;}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);
+/* シネマティックなアカシック世界にコミット(単一テーマ・意図的) */
+html{scroll-behavior:smooth;}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);
+background:radial-gradient(ellipse 120% 80% at 50% -10%,#16121f 0%,#0a0b12 55%,#07080d 100%) fixed;
 font-family:"Palatino Linotype","Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif;
-line-height:2.05;font-size:16.5px;-webkit-font-smoothing:antialiased;}
-header{padding:26px 22px;border-bottom:1px solid var(--line);}
-header a{color:var(--gold);text-decoration:none;font-size:14px;letter-spacing:.14em;}
-main{max-width:38em;margin:0 auto;padding:40px 22px 90px;}
+line-height:2.05;font-size:16.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+/* 没入レイヤ */
+#akx-stars{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.85;}
+#akx-spot{position:fixed;inset:0;z-index:0;pointer-events:none;
+background:radial-gradient(560px circle at var(--mx,50%) var(--my,28%),rgba(244,217,138,.07),transparent 62%);}
+#akx-veil{position:fixed;inset:0;z-index:0;pointer-events:none;
+background:radial-gradient(ellipse 80% 60% at 50% 40%,transparent 55%,rgba(5,6,11,.55) 100%);}
+#akx-progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:60;
+background:linear-gradient(90deg,var(--gold-d),var(--gold));box-shadow:0 0 14px var(--gold);}
+.akx-dot,.akx-ring{position:fixed;top:0;left:0;z-index:70;pointer-events:none;
+border-radius:50%;transform:translate(-50%,-50%);mix-blend-mode:screen;will-change:transform;}
+.akx-dot{width:6px;height:6px;background:var(--gold);box-shadow:0 0 14px 2px var(--gold);}
+.akx-ring{width:32px;height:32px;border:1px solid rgba(244,217,138,.45);
+transition:width .25s,height .25s,border-color .25s,background .25s;}
+.akx-ring.hot{width:60px;height:60px;border-color:var(--gold);background:rgba(244,217,138,.05);}
+@media(pointer:fine){body.cursorfx{cursor:none;}}
+header{padding:26px 22px;border-bottom:1px solid var(--line);position:relative;z-index:2;
+backdrop-filter:blur(6px);}
+header a{color:var(--gold);text-decoration:none;font-size:14px;letter-spacing:.14em;
+transition:text-shadow .3s;}
+header a:hover{text-shadow:0 0 16px var(--gold);}
+main{max-width:38em;margin:0 auto;padding:40px 22px 90px;position:relative;z-index:1;}
+footer{position:relative;z-index:1;}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{opacity:1;transform:none;}
 h1{font-size:26px;font-weight:600;line-height:1.5;color:var(--ink);margin:0 0 6px;}
+h1.shimmer{font-size:clamp(30px,6vw,52px);line-height:1.14;letter-spacing:.02em;
+background:linear-gradient(100deg,var(--gold) 0%,#fff5da 20%,var(--gold-d) 45%,var(--gold) 70%,#fff5da 90%);
+background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
+animation:akshimmer 7s linear infinite;}
+@keyframes akshimmer{to{background-position:220% center;}}
 .meta{color:var(--faint);font-size:12.5px;letter-spacing:.1em;margin-bottom:44px;}
 p{margin:0 0 1.6em;text-indent:1em;}
 p.noindent{text-indent:0}
@@ -39,11 +67,28 @@ hr{border:none;border-top:1px solid var(--line);margin:3em auto;width:40%;}
 .nav{display:flex;justify-content:space-between;margin-top:70px;padding-top:22px;
 border-top:1px solid var(--line);font-size:14px;}
 .nav a{color:var(--gold);text-decoration:none;}
-ul.toc{list-style:none;padding:0;margin:30px 0;}
+.eyebrow-idx{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.4em;
+text-transform:uppercase;color:var(--gold-d);margin-bottom:20px;}
+.toc-head{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.34em;
+text-transform:uppercase;color:var(--faint);margin:56px 0 6px;
+border-bottom:1px solid var(--line);padding-bottom:14px;}
+ul.toc{list-style:none;padding:0;margin:34px 0;}
 ul.toc li{border-bottom:1px solid var(--line);}
-ul.toc a{display:flex;justify-content:space-between;gap:14px;padding:15px 4px;
-color:var(--ink);text-decoration:none;}
-ul.toc a:hover{color:var(--gold);}
+ul.toc a{position:relative;display:flex;justify-content:space-between;align-items:center;
+gap:14px;padding:20px 18px;color:var(--ink);text-decoration:none;border-radius:12px;
+transform-style:preserve-3d;transition:transform .3s cubic-bezier(.2,.8,.2,1),background .3s,color .3s;overflow:hidden;}
+ul.toc a::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:12px;
+background:linear-gradient(100deg,rgba(244,217,138,.12),transparent 60%);
+opacity:0;transition:opacity .35s;}
+ul.toc a::after{content:"";position:absolute;left:18px;bottom:12px;height:1px;width:0;
+background:linear-gradient(90deg,var(--gold),transparent);transition:width .4s cubic-bezier(.2,.8,.2,1);}
+ul.toc a:hover{color:var(--gold);background:rgba(244,217,138,.03);}
+ul.toc a:hover::before{opacity:1;}
+ul.toc a:hover::after{width:60%;}
+ul.toc a .t{transition:transform .3s;}
+ul.toc a:hover .t{transform:translateX(6px);}
+ul.toc a .t::before{content:"▸ ";color:var(--gold-d);opacity:0;transition:opacity .3s;}
+ul.toc a:hover .t::before{opacity:1;}
 ul.toc .d{color:var(--faint);font-size:12.5px;white-space:nowrap;}
 footer{text-align:center;color:var(--faint);font-size:12px;padding:30px;}
 /* ---- シネマティック YouTube ヒーロー ---- */
@@ -99,6 +144,7 @@ transition:background .2s;}
 .yt-hero .eyebrow{justify-content:center;}}
 @media(prefers-reduced-motion:reduce){.yt-hero::before,.yt-play::before,.yt-play::after,.yt-hero .eyebrow::before{animation:none;}}
 </style></head><body>
+<canvas id="akx-stars"></canvas><div id="akx-spot"></div><div id="akx-veil"></div><div id="akx-progress"></div>
 <header class="ytbar"><a href="index.html">アカシック・レコード 25xx</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/@shiroi1229_studio">YouTube @shiroi1229_studio</a></header>
 <main><h1>第1章　始原の雪、知の種火</h1><div class='meta'>2026-07-21</div><h3>退屈な聖域</h3>
 <p>時は２５ＸＸ（２・５・エックス・エックス）年。</p>
@@ -965,4 +1011,53 @@ transition:background .2s;}
 <p class="say"><span class="who">シロイ</span>「さよなら。あたし、行ってくるね。」</p>
 <p>小さくシロイはつぶやく、機内の騒音にかき消されて誰にも届かない。</p>
 <p>けれど、シロイの瞳はもう、小さくなっていく過去ではなく、見たこともない地平の先、加速する未来だけを真っ直ぐに見据えていた。</p><a class="yt-hero" href="https://www.youtube.com/@shiroi1229_studio" target="_blank" rel="noopener"><div class="yt-hero-row"><div class="yt-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div><div><div class="eyebrow">Now Streaming · YouTube</div><h2>本編は、<b>映像</b>で。</h2><div class="s">声・音楽・アニメーションで動き出す『アカシック・レコード』。すべての物語は YouTube で公開中。</div><span class="btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg> チャンネルを観る</span></div></div></a><div class='nav'><span></span><span></span></div></main>
-<footer>アカシック・レコード 25xx</footer></body></html>
+<footer>アカシック・レコード 25xx</footer>
+<script>
+(function(){
+ var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var fine=matchMedia('(pointer:fine)').matches;
+ var pb=document.getElementById('akx-progress');
+ addEventListener('scroll',function(){var h=document.documentElement;
+  var s=h.scrollTop/((h.scrollHeight-h.clientHeight)||1);pb.style.width=(s*100)+'%';},{passive:true});
+ var spot=document.getElementById('akx-spot');
+ var dot,ring,rx=innerWidth/2,ry=innerHeight/2,tx=rx,ty=ry;
+ if(fine){document.body.classList.add('cursorfx');
+  dot=document.createElement('div');dot.className='akx-dot';
+  ring=document.createElement('div');ring.className='akx-ring';
+  document.body.appendChild(dot);document.body.appendChild(ring);}
+ var mnx=0,mny=0;
+ addEventListener('mousemove',function(e){
+  spot.style.setProperty('--mx',(e.clientX/innerWidth*100)+'%');
+  spot.style.setProperty('--my',(e.clientY/innerHeight*100)+'%');
+  mnx=e.clientX/innerWidth-.5;mny=e.clientY/innerHeight-.5;tx=e.clientX;ty=e.clientY;
+  if(dot)dot.style.transform='translate('+tx+'px,'+ty+'px) translate(-50%,-50%)';},{passive:true});
+ function ringLoop(){rx+=(tx-rx)*.16;ry+=(ty-ry)*.16;
+  if(ring)ring.style.transform='translate('+rx+'px,'+ry+'px) translate(-50%,-50%)';
+  requestAnimationFrame(ringLoop);}
+ if(ring)ringLoop();
+ document.querySelectorAll('a,.yt-hero').forEach(function(el){
+  el.addEventListener('mouseenter',function(){if(ring)ring.classList.add('hot');});
+  el.addEventListener('mouseleave',function(){if(ring)ring.classList.remove('hot');});});
+ if(!rm)document.querySelectorAll('.yt-hero,ul.toc a').forEach(function(el){
+  el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();
+   var cx=(e.clientX-r.left)/r.width-.5,cy=(e.clientY-r.top)/r.height-.5;
+   el.style.transform='perspective(760px) rotateY('+(cx*7)+'deg) rotateX('+(-cy*7)+'deg) translateY(-3px)';});
+  el.addEventListener('mouseleave',function(){el.style.transform='';});});
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+ var c=document.getElementById('akx-stars');if(!c)return;var ctx=c.getContext('2d');
+ var W,H,dpr,stars=[];
+ function rs(){dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;
+  c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+  var n=Math.round(W*H/11000);stars=[];for(var i=0;i<n;i++)stars.push({
+   x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.3+.2,a:Math.random()*.5+.12,
+   t:Math.random()*6.28,s:Math.random()*.5+.2,g:Math.random()<.17,z:Math.random()*.6+.4});}
+ function draw(){ctx.clearRect(0,0,W,H);for(var i=0;i<stars.length;i++){var st=stars[i];
+   var tw=rm?st.a:st.a*(.5+.5*Math.sin(st.t));var ox=mnx*26*st.z,oy=mny*26*st.z;
+   ctx.beginPath();ctx.arc(st.x+ox,st.y+oy,st.r,0,6.283);
+   ctx.fillStyle=st.g?'rgba(244,217,138,'+tw+')':'rgba(203,212,235,'+tw+')';ctx.fill();
+   if(!rm)st.t+=.011*st.s;}if(!rm)requestAnimationFrame(draw);}
+ addEventListener('resize',rs);rs();draw();
+})();
+</script></body></html>
