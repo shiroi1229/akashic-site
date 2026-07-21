@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <title>アカシック・レコード 25xx</title>
+ <link href="https://shiroi1229.github.io/akashic-site/novel/"/>
+ <link rel="self" href="https://shiroi1229.github.io/akashic-site/novel/feed.xml"/>
+ <id>tag:akasha:novel</id>
+ <updated>2026-07-21T11:47:39+00:00</updated>
+ <author><name>Shiroi Saga</name></author>
+ <entry>
+  <title>【スモークテスト】何もない時</title>
+  <link href="https://shiroi1229.github.io/akashic-site/novel/ast_8d28658dfa54.html"/>
+  <id>tag:akasha,2026-07-21:ast_8d28658dfa54</id>
+  <updated>2026-07-21T11:47:39+00:00</updated>
+ </entry>
+</feed>

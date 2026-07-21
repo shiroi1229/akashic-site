@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
+ <channel>
+  <title>アカシック・レコード 25xx 音声劇</title>
+  <link>https://shiroi1229.github.io/akashic-site/podcast/</link>
+  <atom:link href="https://shiroi1229.github.io/akashic-site/podcast/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>シロイ・サーガ『25xx アカシック・レコード』の音声ドラマ連載。</description>
+  <language>ja</language>
+  <itunes:author>Shiroi Saga</itunes:author>
+  <itunes:category text="Fiction"/>
+  <itunes:explicit>false</itunes:explicit>
+  <itunes:image href="https://shiroi1229.github.io/akashic-site/podcast/cover.jpg"/>
+  <item>
+   <title>【スモークテスト】第0話</title>
+   <description>【スモークテスト】第0話</description>
+   <enclosure url="https://shiroi1229.github.io/akashic-site/podcast/episodes/ast_788d19d29848.mp3" length="24493" type="audio/mpeg"/>
+   <guid isPermaLink="false">akasha:ast_788d19d29848</guid>
+   <pubDate>Tue, 21 Jul 2026 11:47:39 +0000</pubDate>
+   <itunes:duration>00:03</itunes:duration>
+  </item>
+ </channel>
+</rss>
