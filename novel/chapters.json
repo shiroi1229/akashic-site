@@ -6,6 +6,60 @@
   "chapter": 1,
   "source_ref": "personaforge/episode-source/novel/エピソード01_第1章.txt",
   "youtube_url": "",
-  "published_at": "2026-07-22T11:47:50+00:00"
+  "published_at": "2026-07-22T12:02:29+00:00"
+ },
+ {
+  "asset_id": "ast_500dffa37857",
+  "slug": "ep01-ch2",
+  "title": "第2章　ゼロ地と異邦人",
+  "chapter": 2,
+  "source_ref": "episode-source/novel/エピソード01_第2章.txt",
+  "youtube_url": "",
+  "published_at": "2026-07-22T12:02:29+00:00"
+ },
+ {
+  "asset_id": "ast_d816a4f4503c",
+  "slug": "ep01-ch2-gaiden",
+  "title": "第2章 外伝　ヒロの夢",
+  "chapter": 2,
+  "source_ref": "episode-source/novel/エピソード01_第2章(ヒロの夢).txt",
+  "youtube_url": "",
+  "published_at": "2026-07-22T12:02:29+00:00"
+ },
+ {
+  "asset_id": "ast_1129894c90ce",
+  "slug": "ep01-ch3",
+  "title": "第3章　鉄の翼・孵化する狂気",
+  "chapter": 3,
+  "source_ref": "episode-source/novel/エピソード01_第3章(地獄の訓練).txt",
+  "youtube_url": "",
+  "published_at": "2026-07-22T12:02:29+00:00"
+ },
+ {
+  "asset_id": "ast_9bae7a9ed4cc",
+  "slug": "ep01-ch4",
+  "title": "第4章　初陣",
+  "chapter": 4,
+  "source_ref": "episode-source/novel/エピソード01_第4章(初陣).txt",
+  "youtube_url": "",
+  "published_at": "2026-07-22T12:02:29+00:00"
+ },
+ {
+  "asset_id": "ast_03642686b9de",
+  "slug": "ep01-ch5",
+  "title": "第5章　濁った水槽と黄金の幻影",
+  "chapter": 5,
+  "source_ref": "episode-source/novel/エピソード01_第5章.txt",
+  "youtube_url": "",
+  "published_at": "2026-07-22T12:02:29+00:00"
+ },
+ {
+  "asset_id": "ast_43883eb21b49",
+  "slug": "ep01-ch6",
+  "title": "第6章　４０キロの暗道と楽園の証明",
+  "chapter": 6,
+  "source_ref": "episode-source/novel/エピソード01_第6章.txt",
+  "youtube_url": "",
+  "published_at": "2026-07-22T12:02:30+00:00"
  }
 ]
