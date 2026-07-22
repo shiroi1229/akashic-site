@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="第1章　始原の雪、知の種火｜アカシック・レコード 25xx">
 <meta name="twitter:description" content="退屈な聖域時は２５ＸＸ（２・５・エックス・エックス）年。世界はとうに崩壊し、文明の残骸が風に舞っている。それでも山は黙してそびえ、その頂――空に最も近き地に、ひとつの寺院が奇跡のように残されていた。空はどこまでも鈍く灰色に沈み、冷たい霧…">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "第1章　始原の雪、知の種火", "inLanguage": "ja", "url": "https://shiroi1229.github.io/akashic-site/novel/ep01-ch1.html", "datePublished": "2026-07-21T13:21:20+00:00", "author": {"@type": "Person", "name": "Shiroi Saga"}, "publisher": {"@type": "Organization", "name": "アカシック・レコード 25xx"}, "isPartOf": {"@type": "Book", "name": "アカシック・レコード 25xx", "url": "https://shiroi1229.github.io/akashic-site/novel/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "第1章　始原の雪、知の種火", "inLanguage": "ja", "url": "https://shiroi1229.github.io/akashic-site/novel/ep01-ch1.html", "datePublished": "2026-07-22T10:05:48+00:00", "author": {"@type": "Person", "name": "Shiroi Saga"}, "publisher": {"@type": "Organization", "name": "アカシック・レコード 25xx"}, "isPartOf": {"@type": "Book", "name": "アカシック・レコード 25xx", "url": "https://shiroi1229.github.io/akashic-site/novel/"}}</script>
 <style>
 :root{--bg:#f4f7fc;--panel:#ffffff;--line:rgba(30,44,78,.12);--ink:#1a1e2b;
 --dim:#565d72;--faint:#98a0b4;--gold:#a97f26;--gold-d:#856118;--blue:#3f5fa6;}
@@ -24,21 +24,7 @@ body{margin:0;color:var(--ink);
 background:radial-gradient(ellipse 130% 95% at 50% -8%,#ffffff 0%,#eef3fb 50%,#e5ecf7 100%) fixed;
 font-family:"Palatino Linotype","Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif;
 line-height:2.05;font-size:16.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-/* 光レイヤ */
-#akx-stars{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:1;}
-#akx-spot{position:fixed;inset:0;z-index:0;pointer-events:none;mix-blend-mode:multiply;
-background:radial-gradient(500px circle at var(--mx,50%) var(--my,30%),rgba(255,238,196,.55),rgba(230,236,248,0) 62%);}
-#akx-veil{position:fixed;inset:0;z-index:0;pointer-events:none;
-background:radial-gradient(ellipse 88% 66% at 50% 40%,transparent 60%,rgba(38,52,92,.07) 100%);}
-#akx-progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:60;
-background:linear-gradient(90deg,var(--gold-d),var(--gold));box-shadow:0 0 12px rgba(169,127,38,.55);}
-.akx-dot,.akx-ring{position:fixed;top:0;left:0;z-index:70;pointer-events:none;
-border-radius:50%;transform:translate(-50%,-50%);will-change:transform;}
-.akx-dot{width:7px;height:7px;background:var(--gold);box-shadow:0 0 12px 2px rgba(169,127,38,.5);}
-.akx-ring{width:30px;height:30px;border:1.5px solid rgba(169,127,38,.5);
-transition:width .25s,height .25s,border-color .25s,background .25s;}
-.akx-ring.hot{width:58px;height:58px;border-color:var(--gold);background:rgba(169,127,38,.06);}
-@media(pointer:fine){body.cursorfx{cursor:none;}}
+/* 光レイヤ・カーソル・遷移は sitefx(AKX_CSS) 側 */
 header{padding:26px 22px;border-bottom:1px solid var(--line);position:relative;z-index:2;
 backdrop-filter:blur(8px);background:rgba(255,255,255,.55);}
 header a{color:var(--gold);text-decoration:none;font-size:14px;letter-spacing:.14em;
@@ -48,16 +34,6 @@ main{max-width:38em;margin:0 auto;padding:40px 22px 90px;position:relative;z-ind
 animation:akx-enter .95s cubic-bezier(.2,.8,.2,1) both;}
 @keyframes akx-enter{from{opacity:0;transform:translateY(18px) scale(.995);filter:blur(10px);}
 to{opacity:1;transform:none;filter:none;}}
-#akx-trans{position:fixed;inset:0;z-index:120;pointer-events:none;opacity:0;
-background:radial-gradient(circle at var(--tx,50%) var(--ty,50%),#fff 0%,#fff 30%,rgba(245,247,252,.78) 60%,rgba(245,247,252,0) 100%);
-transition:opacity .47s ease;}
-#akx-trans.on{opacity:1;}
-#akx-trans .sweep{position:absolute;inset:0;overflow:hidden;}
-#akx-trans .sweep::before{content:"";position:absolute;top:-20%;left:0;width:55%;height:140%;
-background:linear-gradient(115deg,transparent 30%,rgba(169,127,38,.4) 50%,transparent 70%);
-transform:translateX(-170%) skewX(-12deg);}
-#akx-trans.on .sweep::before{animation:akx-sweep .6s cubic-bezier(.4,0,.2,1);}
-@keyframes akx-sweep{to{transform:translateX(330%) skewX(-12deg);}}
 footer{position:relative;z-index:1;}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);}
 .reveal.in{opacity:1;transform:none;}
@@ -104,62 +80,102 @@ ul.toc a .t::before{content:"▸ ";color:var(--gold-d);opacity:0;transition:opac
 ul.toc a:hover .t::before{opacity:1;}
 ul.toc .d{color:var(--faint);font-size:12.5px;white-space:nowrap;}
 footer{text-align:center;color:var(--faint);font-size:12px;padding:30px;}
-/* ---- シネマティック YouTube ヒーロー ---- */
-.yt-hero{position:relative;display:block;margin:60px auto;max-width:40em;
-text-decoration:none;overflow:hidden;border-radius:22px;isolation:isolate;
-background:linear-gradient(155deg,#14060a 0%,#0a0b12 55%,#0d0a14 100%);
-border:1px solid rgba(255,60,80,.22);padding:44px 40px;
-box-shadow:0 24px 70px -30px rgba(255,30,60,.5),inset 0 1px 0 rgba(255,255,255,.05);
-transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;}
-.yt-hero::before{content:"";position:absolute;inset:-40%;z-index:-1;
-background:conic-gradient(from 0deg,transparent,rgba(255,40,70,.18),transparent 40%,rgba(244,217,138,.12),transparent 70%);
-animation:ytspin 14s linear infinite;}
-.yt-hero::after{content:"";position:absolute;left:-20%;top:-60%;width:70%;height:200%;z-index:-1;
-background:radial-gradient(ellipse,rgba(255,45,70,.22),transparent 60%);filter:blur(20px);}
-.yt-hero:hover{transform:translateY(-4px) scale(1.008);
-box-shadow:0 34px 90px -28px rgba(255,40,70,.65),inset 0 1px 0 rgba(255,255,255,.08);}
-@keyframes ytspin{to{transform:rotate(360deg);}}
-.yt-hero-row{display:flex;align-items:center;gap:26px;}
-.yt-play{position:relative;flex:none;width:74px;height:74px;border-radius:50%;
-background:linear-gradient(180deg,#ff2d4a,#d80f2e);display:grid;place-items:center;
-box-shadow:0 8px 30px rgba(255,45,70,.55);}
+/* ---- YouTube ヒーロー(白×光のガラス) ---- */
+.yt-hero{position:relative;display:block;margin:64px auto;max-width:40em;
+text-decoration:none;overflow:hidden;border-radius:24px;isolation:isolate;
+background:linear-gradient(160deg,rgba(255,255,255,.9),rgba(246,248,253,.72));
+backdrop-filter:blur(14px);border:1px solid rgba(169,127,38,.34);padding:44px 42px;
+box-shadow:0 30px 80px -34px rgba(48,64,110,.35),0 4px 18px -8px rgba(169,127,38,.25),
+inset 0 1px 0 rgba(255,255,255,.9);
+transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .4s;}
+.yt-hero::before{content:"";position:absolute;top:-40%;left:-30%;width:52%;height:180%;z-index:0;
+background:linear-gradient(115deg,transparent 34%,rgba(255,244,214,.95) 46%,rgba(214,228,252,.7) 52%,transparent 64%);
+transform:translateX(-140%) skewX(-14deg);transition:transform 1.05s cubic-bezier(.3,.7,.2,1);}
+.yt-hero:hover::before{transform:translateX(360%) skewX(-14deg);}
+.yt-hero::after{content:"";position:absolute;right:-90px;top:-90px;width:280px;height:280px;z-index:0;
+border:1px solid rgba(169,127,38,.2);border-radius:50%;
+box-shadow:inset 0 0 0 34px rgba(169,127,38,.045),inset 0 0 0 78px rgba(63,95,166,.04);}
+.yt-hero:hover{transform:translateY(-5px);border-color:rgba(169,127,38,.6);
+box-shadow:0 44px 100px -36px rgba(48,64,110,.45),0 8px 26px -8px rgba(169,127,38,.4),
+inset 0 1px 0 #fff;}
+.yt-hero-row{display:flex;align-items:center;gap:28px;position:relative;z-index:1;}
+.yt-play{position:relative;flex:none;width:76px;height:76px;border-radius:50%;
+background:linear-gradient(180deg,#ff2d4a,#cc0f2c);display:grid;place-items:center;
+box-shadow:0 12px 30px -8px rgba(220,20,50,.55),inset 0 1px 0 rgba(255,255,255,.35);
+transition:transform .3s;}
+.yt-hero:hover .yt-play{transform:scale(1.07);}
 .yt-play svg{width:30px;height:30px;margin-left:4px;fill:#fff;}
 .yt-play::before,.yt-play::after{content:"";position:absolute;inset:0;border-radius:50%;
-border:2px solid rgba(255,45,70,.55);animation:ytpulse 2.6s ease-out infinite;}
-.yt-play::after{animation-delay:1.3s;}
-@keyframes ytpulse{0%{transform:scale(1);opacity:.7;}100%{transform:scale(1.9);opacity:0;}}
-.yt-hero .eyebrow{font-family:var(--mono,ui-monospace,monospace);font-size:11px;
-letter-spacing:.34em;text-transform:uppercase;color:#ff5c73;margin-bottom:10px;
+border:1.5px solid rgba(220,20,50,.4);animation:ytpulse 3s ease-out infinite;}
+.yt-play::after{animation-delay:1.5s;}
+@keyframes ytpulse{0%{transform:scale(1);opacity:.8;}100%{transform:scale(2);opacity:0;}}
+.yt-hero .eyebrow{font-family:ui-monospace,monospace;font-size:11px;
+letter-spacing:.34em;text-transform:uppercase;color:var(--gold-d);margin-bottom:10px;
 display:flex;align-items:center;gap:9px;}
 .yt-hero .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;
-background:#ff2d4a;box-shadow:0 0 10px #ff2d4a;animation:ytlive 1.6s ease-in-out infinite;}
-@keyframes ytlive{50%{opacity:.35;}}
-.yt-hero h2{font-size:30px;line-height:1.2;font-weight:600;color:#fff;
+background:#dc143c;box-shadow:0 0 9px rgba(220,20,60,.8);animation:ytlive 1.8s ease-in-out infinite;}
+@keyframes ytlive{50%{opacity:.3;}}
+.yt-hero h2{font-size:31px;line-height:1.22;font-weight:600;color:var(--ink);
 letter-spacing:.02em;margin:0;}
-.yt-hero h2 b{background:linear-gradient(180deg,#f4d98a,#c9a24a);
+.yt-hero h2 b{background:linear-gradient(100deg,#856118,#c9a24a 45%,#856118);
 -webkit-background-clip:text;background-clip:text;color:transparent;}
-.yt-hero .s{color:#b9bccc;font-size:13.5px;line-height:1.7;margin-top:12px;}
+.yt-hero .s{color:var(--dim);font-size:13.5px;line-height:1.8;margin-top:12px;}
 .yt-hero .btn svg,.yt-ep svg{width:15px;height:15px;fill:#fff;}
 .yt-hero .btn{display:inline-flex;align-items:center;gap:9px;margin-top:22px;
 font-size:14px;font-weight:600;color:#fff;letter-spacing:.04em;
-background:linear-gradient(180deg,#ff2d4a,#d80f2e);border-radius:999px;
-padding:12px 26px;box-shadow:0 10px 26px -8px rgba(255,45,70,.7);
-transition:transform .2s,box-shadow .2s;}
-.yt-hero:hover .btn{transform:translateY(-1px);box-shadow:0 14px 32px -8px rgba(255,45,70,.85);}
-.yt-ep{display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:#fff;
-font-size:13px;font-weight:600;background:rgba(255,45,70,.14);
-border:1px solid rgba(255,60,80,.4);border-radius:999px;padding:9px 20px;text-decoration:none;
-transition:background .2s;}
-.yt-ep:hover{background:rgba(255,45,70,.26);}
+background:linear-gradient(180deg,#ff2d4a,#cc0f2c);border-radius:999px;
+padding:12px 28px;box-shadow:0 12px 28px -10px rgba(220,20,50,.65);
+transition:transform .25s,box-shadow .25s;will-change:transform;}
+.yt-ep{display:inline-flex;align-items:center;gap:8px;margin-top:16px;color:#fff;
+font-size:13px;font-weight:600;background:linear-gradient(180deg,#ff2d4a,#cc0f2c);
+border-radius:999px;padding:10px 22px;text-decoration:none;
+box-shadow:0 10px 24px -10px rgba(220,20,50,.6);transition:transform .25s;will-change:transform;}
 .ytbar{border-bottom:1px solid var(--line);}
 .ytbar a{color:var(--gold);font-size:13px;letter-spacing:.06em;}
 @media(max-width:600px){.yt-hero-row{flex-direction:column;text-align:center;}
 .yt-hero .eyebrow{justify-content:center;}}
 @media(prefers-reduced-motion:reduce){.yt-hero::before,.yt-play::before,.yt-play::after,.yt-hero .eyebrow::before,main,h1.shimmer{animation:none;}main{filter:none;opacity:1;transform:none;}}
+
+#akx-gl{position:fixed;inset:0;z-index:0;pointer-events:none;}
+#akx-rays{position:fixed;inset:-10%;z-index:0;pointer-events:none;opacity:.55;
+background:
+ linear-gradient(112deg,transparent 42%,rgba(255,240,205,.5) 47%,transparent 53%),
+ linear-gradient(104deg,transparent 60%,rgba(255,236,196,.36) 66%,transparent 72%),
+ linear-gradient(118deg,transparent 22%,rgba(214,226,248,.4) 27%,transparent 33%);
+mix-blend-mode:multiply;animation:akxrays 26s ease-in-out infinite alternate;}
+@keyframes akxrays{from{transform:translateX(-2.5%) skewX(-1deg);}to{transform:translateX(2.5%) skewX(1deg);}}
+#akx-spot{position:fixed;inset:0;z-index:0;pointer-events:none;mix-blend-mode:multiply;
+background:radial-gradient(520px circle at var(--mx,50%) var(--my,30%),rgba(255,240,206,.5),rgba(238,242,250,0) 60%);}
+#akx-progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:60;
+background:linear-gradient(90deg,#856118,#c9a24a);box-shadow:0 0 12px rgba(169,127,38,.6);}
+.akx-dot,.akx-ring{position:fixed;top:0;left:0;z-index:70;pointer-events:none;
+border-radius:50%;transform:translate(-50%,-50%);will-change:transform;}
+.akx-dot{width:7px;height:7px;background:#a97f26;box-shadow:0 0 12px 2px rgba(169,127,38,.55);}
+.akx-ring{width:30px;height:30px;border:1.5px solid rgba(169,127,38,.55);
+transition:width .25s,height .25s,border-color .25s,background .25s;}
+.akx-ring.hot{width:60px;height:60px;border-color:#a97f26;background:rgba(169,127,38,.07);}
+@media(pointer:fine){body.cursorfx{cursor:none;}}
+#akx-trans{position:fixed;inset:0;z-index:120;pointer-events:none;opacity:0;
+background:radial-gradient(circle at var(--tx,50%) var(--ty,50%),#fff 0%,#fff 32%,rgba(245,247,252,.8) 62%,rgba(245,247,252,0) 100%);
+transition:opacity .45s ease;}
+#akx-trans.on{opacity:1;}
+#akx-trans .sweep{position:absolute;inset:0;overflow:hidden;}
+#akx-trans .sweep::before{content:"";position:absolute;top:-20%;left:0;width:55%;height:140%;
+background:linear-gradient(115deg,transparent 30%,rgba(169,127,38,.4) 50%,transparent 70%);
+transform:translateX(-170%) skewX(-12deg);}
+#akx-trans.on .sweep::before{animation:akxsweep .6s cubic-bezier(.4,0,.2,1);}
+@keyframes akxsweep{to{transform:translateX(330%) skewX(-12deg);}}
+@view-transition{navigation:auto;}
+::view-transition-old(root){animation:akxvt-out .38s cubic-bezier(.4,0,.2,1) both;}
+::view-transition-new(root){animation:akxvt-in .5s cubic-bezier(.2,.8,.2,1) both;}
+@keyframes akxvt-out{to{opacity:0;transform:scale(1.012);filter:blur(6px) brightness(1.35);}}
+@keyframes akxvt-in{from{opacity:0;transform:scale(.992);filter:blur(10px) brightness(1.3);}}
+@media(prefers-reduced-motion:reduce){#akx-rays{animation:none;}
+::view-transition-old(root),::view-transition-new(root){animation:none;}}
 </style></head><body>
-<canvas id="akx-stars"></canvas><div id="akx-spot"></div><div id="akx-veil"></div><div id="akx-progress"></div><div id="akx-trans"><div class="sweep"></div></div>
+<canvas id="akx-gl"></canvas><div id="akx-rays"></div><div id="akx-spot"></div><div id="akx-progress"></div><div id="akx-trans"><div class="sweep"></div></div>
 <header class="ytbar"><a href="index.html">アカシック・レコード 25xx</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/@shiroi1229_studio">YouTube @shiroi1229_studio</a></header>
-<main><h1>第1章　始原の雪、知の種火</h1><div class='meta'>2026-07-21</div><h3>退屈な聖域</h3>
+<main><h1>第1章　始原の雪、知の種火</h1><div class='meta'>2026-07-22</div><h3>退屈な聖域</h3>
 <p>時は２５ＸＸ（２・５・エックス・エックス）年。</p>
 <p>世界はとうに崩壊し、文明の残骸が風に舞っている。</p>
 <p>それでも山は黙してそびえ、その頂――空に最も近き地に、ひとつの寺院が奇跡のように残されていた。</p>
@@ -1023,121 +1039,223 @@ transition:background .2s;}
 <p>シロイの中にあった微かな迷いは、対流圏を突き抜ける風によって、跡形もなく霧散した。</p>
 <p class="say"><span class="who">シロイ</span>「さよなら。あたし、行ってくるね。」</p>
 <p>小さくシロイはつぶやく、機内の騒音にかき消されて誰にも届かない。</p>
-<p>けれど、シロイの瞳はもう、小さくなっていく過去ではなく、見たこともない地平の先、加速する未来だけを真っ直ぐに見据えていた。</p><a class="yt-hero" href="https://www.youtube.com/@shiroi1229_studio" target="_blank" rel="noopener"><div class="yt-hero-row"><div class="yt-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div><div><div class="eyebrow">Now Streaming · YouTube</div><h2>本編は、<b>映像</b>で。</h2><div class="s">声・音楽・アニメーションで動き出す『アカシック・レコード』。すべての物語は YouTube で公開中。</div><span class="btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg> チャンネルを観る</span></div></div></a><div class='nav'><span></span><span></span></div></main>
+<p>けれど、シロイの瞳はもう、小さくなっていく過去ではなく、見たこともない地平の先、加速する未来だけを真っ直ぐに見据えていた。</p><a class="yt-hero tilt" href="https://www.youtube.com/@shiroi1229_studio" target="_blank" rel="noopener"><div class="yt-hero-row"><div class="yt-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div><div><div class="eyebrow">Now Streaming · YouTube</div><h2>本編は、<b>映像</b>で。</h2><div class="s">声・音楽・アニメーションで動き出す『アカシック・レコード』。すべての物語は YouTube で公開中。</div><span class="btn mag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg> チャンネルを観る</span></div></div></a><div class='nav'><span></span><span></span></div></main>
 <footer>アカシック・レコード 25xx</footer>
 <script>
-(function(){
- var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
- var fine=matchMedia('(pointer:fine)').matches;
- var pb=document.getElementById('akx-progress');
- addEventListener('scroll',function(){var h=document.documentElement;
-  var s=h.scrollTop/((h.scrollHeight-h.clientHeight)||1);pb.style.width=(s*100)+'%';},{passive:true});
- var spot=document.getElementById('akx-spot');
- var dot,ring,rx=innerWidth/2,ry=innerHeight/2,tx=rx,ty=ry,moved=false;
- if(fine){document.body.classList.add('cursorfx');
-  dot=document.createElement('div');dot.className='akx-dot';
-  ring=document.createElement('div');ring.className='akx-ring';
-  document.body.appendChild(dot);document.body.appendChild(ring);}
- var mnx=0,mny=0;
- addEventListener('mousemove',function(e){
-  spot.style.setProperty('--mx',(e.clientX/innerWidth*100)+'%');
-  spot.style.setProperty('--my',(e.clientY/innerHeight*100)+'%');
-  mnx=e.clientX/innerWidth-.5;mny=e.clientY/innerHeight-.5;tx=e.clientX;ty=e.clientY;moved=true;
-  if(dot)dot.style.transform='translate('+tx+'px,'+ty+'px) translate(-50%,-50%)';},{passive:true});
- function ringLoop(){rx+=(tx-rx)*.16;ry+=(ty-ry)*.16;
-  if(ring)ring.style.transform='translate('+rx+'px,'+ry+'px) translate(-50%,-50%)';
-  requestAnimationFrame(ringLoop);}
- if(ring)ringLoop();
- document.querySelectorAll('a,.yt-hero').forEach(function(el){
-  el.addEventListener('mouseenter',function(){if(ring)ring.classList.add('hot');});
-  el.addEventListener('mouseleave',function(){if(ring)ring.classList.remove('hot');});});
- if(!rm)document.querySelectorAll('.yt-hero,ul.toc a').forEach(function(el){
-  el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();
-   var cx=(e.clientX-r.left)/r.width-.5,cy=(e.clientY-r.top)/r.height-.5;
-   el.style.transform='perspective(760px) rotateY('+(cx*7)+'deg) rotateX('+(-cy*7)+'deg) translateY(-3px)';});
-  el.addEventListener('mouseleave',function(){el.style.transform='';});});
- var io=new IntersectionObserver(function(es){es.forEach(function(e){
-  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
- document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
- /* 画面遷移: 光へ溶けて、光から現れる */
- var tr=document.getElementById('akx-trans');
- if(tr){document.addEventListener('click',function(e){
-  var a=e.target.closest?e.target.closest('a'):null;if(!a)return;
-  if(a.target==='_blank'||a.hasAttribute('download'))return;
-  var href=a.getAttribute('href')||'';
-  if(!href||href.charAt(0)==='#'||href.indexOf('mailto:')===0||href.indexOf('http')===0&&a.host!==location.host)return;
-  if(rm)return;
-  e.preventDefault();
-  tr.style.setProperty('--tx',(e.clientX/innerWidth*100)+'%');
-  tr.style.setProperty('--ty',(e.clientY/innerHeight*100)+'%');
-  tr.classList.add('on');
-  setTimeout(function(){location.href=a.href;},470);});
- addEventListener('pageshow',function(ev){if(ev.persisted)tr.classList.remove('on');});}
- var c=document.getElementById('akx-stars');if(!c)return;var ctx=c.getContext('2d');
- var TAU=Math.PI*2,W,H,dpr,motes=[],P=[],NP=48,t0=performance.now();
- function rs(){dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;
-  c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
-  var n=Math.round(W*H/26000);motes=[];for(var i=0;i<n;i++)motes.push({
-   x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.3,a:Math.random()*.16+.04,
-   t:Math.random()*6.28,s:Math.random()*.5+.2,g:Math.random()<.45});
-  /* Plexus(点網ネットワーク)ノード — RAG effects.def.tsx:1217 Plexus 移植(白×光/3D/引力) */
-  P=[];for(var j=0;j<NP;j++){var z=Math.random(),sp=.5+z*.85;
-   P.push({cx:Math.random()*W,cy:Math.random()*H,z:z,ox:0,oy:0,
-    ax:(22+Math.random()*55)*sp,ay:(18+Math.random()*45)*sp,
-    f1:(.04+Math.random()*.07)*sp,f2:(.023+Math.random()*.05)*sp,
-    g1:(.035+Math.random()*.06)*sp,g2:(.019+Math.random()*.045)*sp,ph:Math.random()*TAU});}}
- function draw(){ctx.clearRect(0,0,W,H);
-  for(var i=0;i<motes.length;i++){var st=motes[i];
-   var tw=rm?st.a:st.a*(.5+.5*Math.sin(st.t));var ox=mnx*14,oy=mny*14;
-   ctx.beginPath();ctx.arc(st.x+ox,st.y+oy,st.r,0,TAU);
-   ctx.fillStyle=st.g?'rgba(169,127,38,'+tw+')':'rgba(80,110,175,'+tw+')';ctx.fill();
-   if(!rm)st.t+=.011*st.s;}
-  var t=(performance.now()-t0)/1000;
-  var focalZ=.55+.3*Math.sin(t*(TAU/9));            /* 焦点ブリージング約9秒 */
-  var RA=Math.min(W,H)*.42,RA2=RA*RA,ATT=.62,EASE=.028; /* 引力: Lorentzian×深度×緩慢イージング */
-  var pos=[];for(var k=0;k<NP;k++){var p=P[k];var scale=.5+p.z*.95;
-   var defo=Math.min(1,Math.abs(p.z-focalZ)*2.6);
-   var bx=p.cx+Math.sin(t*p.f1*TAU+p.ph)*p.ax*.72+Math.sin(t*p.f2*TAU+p.ph*2.3)*p.ax*.28;
-   var by=p.cy+Math.cos(t*p.g1*TAU+p.ph*1.7)*p.ay*.72+Math.cos(t*p.g2*TAU+p.ph*.6)*p.ay*.28;
-   var tox=0,toy=0;
-   if(moved&&!rm){var dx=tx-bx,dy=ty-by,inf=RA2/(dx*dx+dy*dy+RA2),dw=.4+.6*p.z;
-    tox=dx*inf*ATT*dw;toy=dy*inf*ATT*dw;}
-   p.ox+=(tox-p.ox)*EASE;p.oy+=(toy-p.oy)*EASE;
-   pos.push({x:bx+p.ox,y:by+p.oy,z:p.z,defo:defo,
-    r:(1.5+2.9*scale)*(1+1.3*defo),br:.75+.25*Math.sin(t*.32*TAU+p.ph*2.2)});}
-  var ZS=Math.min(W,H)*.75,REACH=Math.min(W,H)*.34;
-  var adj=[];for(var a0=0;a0<NP;a0++)adj.push([]);var links=[];
-  for(var ii=0;ii<NP;ii++)for(var jj=ii+1;jj<NP;jj++){
-   var dz=(pos[ii].z-pos[jj].z)*ZS;
-   var d3=Math.hypot(pos[ii].x-pos[jj].x,pos[ii].y-pos[jj].y,dz);
-   if(d3<REACH){links.push({a:ii,b:jj,o:(1-d3/REACH)*.7,
-     df:(pos[ii].defo+pos[jj].defo)/2});adj[ii].push(jj);adj[jj].push(ii);}}
-  /* 三角膜: 相互連結の三点に極薄の膜(三点が引っ張りあう・上限14) */
-  var tris=[];
-  for(var ti=0;ti<NP&&tris.length<14;ti++)for(var xi=0;xi<adj[ti].length;xi++){
-   var tj=adj[ti][xi];if(tj<=ti)continue;
-   for(var yi=0;yi<adj[tj].length;yi++){var tk=adj[tj][yi];
-    if(tk<=tj||adj[ti].indexOf(tk)<0)continue;
-    var df=(pos[ti].defo+pos[tj].defo+pos[tk].defo)/3;
-    tris.push({i:ti,j:tj,k:tk,o:.06*(1-df*.6)});if(tris.length>=14)break;}}
-  for(var m=0;m<tris.length;m++){var Tr=tris[m];
-   ctx.beginPath();ctx.moveTo(pos[Tr.i].x,pos[Tr.i].y);ctx.lineTo(pos[Tr.j].x,pos[Tr.j].y);
-   ctx.lineTo(pos[Tr.k].x,pos[Tr.k].y);ctx.closePath();
-   ctx.fillStyle='rgba(120,150,210,'+Tr.o+')';ctx.fill();}
-  for(var l=0;l<links.length;l++){var L=links[l],A=pos[L.a],B=pos[L.b];
-   var op=L.o*(1-L.df*.5);if(op<.02)continue;
-   ctx.strokeStyle='rgba(150,175,225,'+(op*.5)+')';ctx.lineWidth=2.2+L.df*1.6;
-   ctx.beginPath();ctx.moveTo(A.x,A.y);ctx.lineTo(B.x,B.y);ctx.stroke();
-   ctx.strokeStyle='rgba(63,95,166,'+op+')';ctx.lineWidth=.9;
-   ctx.beginPath();ctx.moveTo(A.x,A.y);ctx.lineTo(B.x,B.y);ctx.stroke();}
-  for(var nn=0;nn<NP;nn++){var Q=pos[nn];var na=Q.br*(.85-.5*Q.defo);if(na<0)na=0;
-   ctx.beginPath();ctx.arc(Q.x,Q.y,Q.r*2.3,0,TAU);
-   ctx.fillStyle='rgba(206,168,86,'+(na*.16)+')';ctx.fill();
-   ctx.beginPath();ctx.arc(Q.x,Q.y,Q.r,0,TAU);
-   ctx.fillStyle='rgba(169,127,38,'+na+')';ctx.fill();
-   if(Q.defo<.4){ctx.beginPath();ctx.arc(Q.x,Q.y,Q.r*.5,0,TAU);
-    ctx.fillStyle='rgba(120,88,20,'+na+')';ctx.fill();}}
-  if(!rm)requestAnimationFrame(draw);}
- addEventListener('resize',rs);rs();draw();
+(function(){"use strict";
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ---------- ページ演出(進捗/カーソル/傾き/遷移/磁力/出現) ---------- */
+var pb=document.getElementById('akx-progress');
+addEventListener('scroll',function(){var h=document.documentElement;
+ var s=h.scrollTop/((h.scrollHeight-h.clientHeight)||1);if(pb)pb.style.width=(s*100)+'%';},{passive:true});
+var spot=document.getElementById('akx-spot');
+var fine=matchMedia('(pointer:fine)').matches,dot,ring,cx=0,cy=0,rx2=0,ry2=0;
+if(fine&&!rm){document.body.classList.add('cursorfx');
+ dot=document.createElement('div');dot.className='akx-dot';
+ ring=document.createElement('div');ring.className='akx-ring';
+ document.body.appendChild(dot);document.body.appendChild(ring);
+ (function loop(){rx2+=(cx-rx2)*.16;ry2+=(cy-ry2)*.16;
+  ring.style.transform='translate('+rx2+'px,'+ry2+'px) translate(-50%,-50%)';
+  requestAnimationFrame(loop);})();}
+document.addEventListener('mouseover',function(e){
+ if(ring)ring.classList.toggle('hot',!!(e.target.closest&&e.target.closest('a,button')));});
+document.querySelectorAll('.mag').forEach(function(el){
+ el.addEventListener('mousemove',function(e){if(rm)return;var r=el.getBoundingClientRect();
+  el.style.transform='translate('+((e.clientX-r.left-r.width/2)*.2)+'px,'+((e.clientY-r.top-r.height/2)*.24)+'px)';});
+ el.addEventListener('mouseleave',function(){el.style.transform='';});});
+if(!rm)document.querySelectorAll('.tilt').forEach(function(el){
+ el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();
+  var a=(e.clientX-r.left)/r.width-.5,b=(e.clientY-r.top)/r.height-.5;
+  el.style.transform='perspective(760px) rotateY('+(a*7)+'deg) rotateX('+(-b*7)+'deg) translateY(-3px)';});
+ el.addEventListener('mouseleave',function(){el.style.transform='';});});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){
+ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+var tr=document.getElementById('akx-trans');
+if(tr)document.addEventListener('click',function(e){
+ var a=e.target.closest?e.target.closest('a'):null;if(!a||rm)return;
+ if(a.target==='_blank'||a.hasAttribute('download'))return;
+ var href=a.getAttribute('href')||'';
+ if(!href||href[0]==='#'||href.indexOf('mailto:')===0)return;
+ if(href.indexOf('http')===0&&a.host!==location.host)return;
+ e.preventDefault();
+ tr.style.setProperty('--tx',(e.clientX/innerWidth*100)+'%');
+ tr.style.setProperty('--ty',(e.clientY/innerHeight*100)+'%');
+ tr.classList.add('on');setTimeout(function(){location.href=a.href;},430);});
+addEventListener('pageshow',function(ev){if(ev.persisted&&tr)tr.classList.remove('on');});
+
+/* ---------- AKX Plexus Engine: 本物の3D(WebGL / 2Dフォールバック) ---------- */
+var cv=document.getElementById('akx-gl');if(!cv)return;
+var TAU=Math.PI*2,DPR=Math.min(devicePixelRatio||1,2),W=1,H=1,ASP=1;
+var gl=null,ctx2=null;
+try{gl=cv.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:false});}catch(_e){}
+if(!gl)ctx2=cv.getContext('2d');
+/* --- シミュレーション(共有) --- */
+var N=210,DUST=700,REACH=.5,R2=.55*.55;
+function rnd(){return Math.random();}
+var nd=[],du=[];
+for(var i=0;i<N;i++)nd.push({
+ bx:(rnd()*2-1)*1.28,by:(rnd()*2-1)*.96,bz:(rnd()*2-1)*.96,
+ a1:.05+rnd()*.1,a2:.04+rnd()*.09,a3:.05+rnd()*.1,
+ w1:TAU/(13+rnd()*17),w2:TAU/(15+rnd()*19),w3:TAU/(12+rnd()*16),
+ p1:rnd()*TAU,p2:rnd()*TAU,p3:rnd()*TAU,ox:0,oy:0,oz:0,tw:rnd()*TAU});
+for(i=0;i<DUST;i++)du.push({x:(rnd()*2-1)*1.7,y:(rnd()*2-1)*1.15,z:(rnd()*2-1),
+ w:TAU/(18+rnd()*26),p:rnd()*TAU,a:.06+rnd()*.15,s:.6+rnd()*1.7});
+var wx=new Float32Array(N),wy=new Float32Array(N),wz=new Float32Array(N);
+var sx=new Float32Array(N),sy=new Float32Array(N),sz=new Float32Array(N),sp=new Float32Array(N);
+var mx=0,my=0,tmx=0,tmy=0,hasMouse=false;
+addEventListener('mousemove',function(e){
+ tmx=e.clientX/W*2-1;tmy=-(e.clientY/H*2-1);hasMouse=true;
+ if(spot){spot.style.setProperty('--mx',(e.clientX/W*100)+'%');
+  spot.style.setProperty('--my',(e.clientY/H*100)+'%');}
+ cx=e.clientX;cy=e.clientY;
+ if(dot)dot.style.transform='translate('+cx+'px,'+cy+'px) translate(-50%,-50%)';},{passive:true});
+var CAM=2.6,F=2.15;
+function resize(){W=innerWidth;H=innerHeight;ASP=W/H;
+ cv.width=W*DPR;cv.height=H*DPR;
+ if(gl)gl.viewport(0,0,cv.width,cv.height);
+ if(ctx2)ctx2.setTransform(DPR,0,0,DPR,0,0);}
+addEventListener('resize',resize);resize();
+/* --- WebGLセットアップ --- */
+var progP=null,progF=null,bufP=null,bufF=null,bufD=null;
+function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);
+ if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw gl.getShaderInfoLog(s);return s;}
+function prog(vs,fs){var p=gl.createProgram();gl.attachShader(p,sh(gl.VERTEX_SHADER,vs));
+ gl.attachShader(p,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(p);
+ if(!gl.getProgramParameter(p,gl.LINK_STATUS))throw gl.getProgramInfoLog(p);return p;}
+if(gl){try{
+ progP=prog(
+  'attribute vec2 aP;attribute float aS;attribute float aA;varying float vA;'+
+  'void main(){gl_Position=vec4(aP,0.,1.);gl_PointSize=aS;vA=aA;}',
+  'precision mediump float;varying float vA;uniform vec3 uCore;uniform vec3 uHalo;'+
+  'void main(){float d=length(gl_PointCoord-.5);if(d>.5)discard;'+
+  'float core=smoothstep(.34,.05,d);float halo=smoothstep(.5,.12,d);'+
+  'vec3 col=mix(uHalo,uCore,core);gl_FragColor=vec4(col,vA*halo);}');
+ progF=prog(
+  'attribute vec2 aP;attribute float aA;varying float vA;'+
+  'void main(){gl_Position=vec4(aP,0.,1.);vA=aA;}',
+  'precision mediump float;varying float vA;uniform vec3 uC;'+
+  'void main(){gl_FragColor=vec4(uC,vA);}');
+ bufP=gl.createBuffer();bufF=gl.createBuffer();bufD=gl.createBuffer();
+ gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
+}catch(err){gl=null;ctx2=cv.getContext('2d');resize();}}
+/* --- フレーム --- */
+var ptA=new Float32Array(N*4),duA=new Float32Array(DUST*4);
+var linkCap=N*8,flatA=new Float32Array(linkCap*18+64*9);
+var t0=performance.now();
+function frame(){
+ var t=(performance.now()-t0)/1000;
+ mx+=(tmx-mx)*.05;my+=(tmy-my)*.05;
+ var ry=t*.045+mx*.5, rxc=-.14*my-.06*Math.sin(t*TAU/47);
+ var fz=.3*Math.sin(t*TAU/11);
+ /* マウスの世界座標(逆回転で z=0 平面へ) */
+ var mwx=0,mwy=0,mwz=0;
+ if(hasMouse){var vx=mx*ASP*(CAM)/F,vy=my*(CAM)/F;
+  var c2=Math.cos(-rxc),s2=Math.sin(-rxc);
+  var vy2=vy*c2, vz2=vy*s2;
+  var c1=Math.cos(-ry),s1=Math.sin(-ry);
+  mwx=vx*c1;mwz=-vx*s1+vz2;mwy=vy2;}
+ var i,j;
+ for(i=0;i<N;i++){var n=nd[i];
+  var bx=n.bx+n.a1*Math.sin(t*n.w1+n.p1),
+      by=n.by+n.a2*Math.sin(t*n.w2+n.p2),
+      bz=n.bz+n.a3*Math.sin(t*n.w3+n.p3);
+  var tx2=0,ty2=0,tz2=0;
+  if(hasMouse&&!rm){var dx=mwx-bx,dy=mwy-by,dz=mwz-bz;
+   var L=R2/(dx*dx+dy*dy+dz*dz+R2);      /* Lorentzian引力 */
+   tx2=dx*L*.5;ty2=dy*L*.5;tz2=dz*L*.5;}
+  n.ox+=(tx2-n.ox)*.03;n.oy+=(ty2-n.oy)*.03;n.oz+=(tz2-n.oz)*.03; /* ゆっくり数学的に */
+  wx[i]=bx+n.ox;wy[i]=by+n.oy;wz[i]=bz+n.oz;
+  var c=Math.cos(ry),s=Math.sin(ry);
+  var x1=wx[i]*c+wz[i]*s, z1=-wx[i]*s+wz[i]*c;
+  var cc=Math.cos(rxc),ss=Math.sin(rxc);
+  var y1=wy[i]*cc-z1*ss, z2b=wy[i]*ss+z1*cc;
+  var pe=F/(CAM-z2b);
+  sx[i]=x1*pe/ASP;sy[i]=y1*pe;sz[i]=z2b;sp[i]=pe;}
+ /* 近接(世界距離)→リンク */
+ var adj=[],links=[];for(i=0;i<N;i++)adj.push([]);
+ for(i=0;i<N;i++)for(j=i+1;j<N;j++){
+  var ddx=wx[i]-wx[j],ddy=wy[i]-wy[j],ddz=wz[i]-wz[j];
+  var d=Math.sqrt(ddx*ddx+ddy*ddy+ddz*ddz);
+  if(d<REACH){links.push(i,j,1-d/REACH);adj[i].push(j);adj[j].push(i);}}
+ /* ノード点スプライト */
+ for(i=0;i<N;i++){var blur=Math.min(1,Math.abs(sz[i]-fz)*1.55);
+  var size=(2.4+3.4*sp[i])*(1+2.6*blur)*DPR;
+  var al=(.5+.3*Math.sin(t*.6+nd[i].tw))*(1-.68*blur);
+  ptA[i*4]=sx[i];ptA[i*4+1]=sy[i];ptA[i*4+2]=size;ptA[i*4+3]=Math.max(al,.06);}
+ /* 塵 */
+ for(i=0;i<DUST;i++){var q=du[i];
+  var qx=q.x+.06*Math.sin(t*q.w+q.p)+mx*.06*q.z,qy=q.y+.05*Math.cos(t*q.w*1.3+q.p)+my*.05*q.z;
+  var pe2=F/(CAM-q.z*.9);
+  duA[i*4]=qx*pe2/ASP;duA[i*4+1]=qy*pe2;duA[i*4+2]=(q.s+1.1*pe2)*DPR;
+  duA[i*4+3]=q.a*(.6+.4*Math.sin(t*q.w*2+q.p));}
+ /* リンク=幅付きクアッド、三角膜 */
+ var fi=0;
+ function quad(ax,ay,bx2,by2,w,al){
+  var dx2=bx2-ax,dy2=by2-ay,len=Math.sqrt(dx2*dx2+dy2*dy2)||1;
+  var nx=-dy2/len*w,ny=dx2/len*w*ASP;nx/=ASP;
+  flatA[fi++]=ax+nx;flatA[fi++]=ay+ny;flatA[fi++]=al;
+  flatA[fi++]=ax-nx;flatA[fi++]=ay-ny;flatA[fi++]=al;
+  flatA[fi++]=bx2+nx;flatA[fi++]=by2+ny;flatA[fi++]=al;
+  flatA[fi++]=ax-nx;flatA[fi++]=ay-ny;flatA[fi++]=al;
+  flatA[fi++]=bx2+nx;flatA[fi++]=by2+ny;flatA[fi++]=al;
+  flatA[fi++]=bx2-nx;flatA[fi++]=by2-ny;flatA[fi++]=al;}
+ for(var l=0;l<links.length;l+=3){var a=links[l],b=links[l+1],o=links[l+2];
+  if(fi>linkCap*18-20)break;
+  var ab=(Math.min(1,Math.abs(sz[a]-fz)*1.55)+Math.min(1,Math.abs(sz[b]-fz)*1.55))/2;
+  quad(sx[a],sy[a],sx[b],sy[b],(0.0011+0.0018*(sp[a]+sp[b])*.5)*(1+1.3*ab),o*.5*(1-.55*ab));}
+ var linkEnd=fi;
+ var tct=0;
+ for(i=0;i<N&&tct<44;i++)for(var xi=0;xi<adj[i].length&&tct<44;xi++){
+  var jj=adj[i][xi];if(jj<=i)continue;
+  for(var yi=0;yi<adj[jj].length;yi++){var k=adj[jj][yi];
+   if(k<=jj||adj[i].indexOf(k)<0)continue;
+   flatA[fi++]=sx[i];flatA[fi++]=sy[i];flatA[fi++]=.07;
+   flatA[fi++]=sx[jj];flatA[fi++]=sy[jj];flatA[fi++]=.07;
+   flatA[fi++]=sx[k];flatA[fi++]=sy[k];flatA[fi++]=.07;
+   tct++;if(tct>=44)break;}}
+ /* ---- 描画 ---- */
+ if(gl){
+  gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);
+  gl.useProgram(progF);
+  var aP=gl.getAttribLocation(progF,'aP'),aA=gl.getAttribLocation(progF,'aA');
+  gl.bindBuffer(gl.ARRAY_BUFFER,bufF);
+  gl.bufferData(gl.ARRAY_BUFFER,flatA.subarray(0,fi),gl.DYNAMIC_DRAW);
+  gl.enableVertexAttribArray(aP);gl.vertexAttribPointer(aP,2,gl.FLOAT,false,12,0);
+  gl.enableVertexAttribArray(aA);gl.vertexAttribPointer(aA,1,gl.FLOAT,false,12,8);
+  var uC=gl.getUniformLocation(progF,'uC');
+  gl.uniform3f(uC,.75,.6,.24);                    /* 三角膜=金 */
+  gl.drawArrays(gl.TRIANGLES,linkEnd/3,(fi-linkEnd)/3);
+  gl.uniform3f(uC,.16,.23,.42);                    /* 結線=藍墨 */
+  gl.drawArrays(gl.TRIANGLES,0,linkEnd/3);
+  gl.useProgram(progP);
+  var pP=gl.getAttribLocation(progP,'aP'),pS=gl.getAttribLocation(progP,'aS'),pA=gl.getAttribLocation(progP,'aA');
+  var uCo=gl.getUniformLocation(progP,'uCore'),uHa=gl.getUniformLocation(progP,'uHalo');
+  gl.bindBuffer(gl.ARRAY_BUFFER,bufD);
+  gl.bufferData(gl.ARRAY_BUFFER,duA,gl.DYNAMIC_DRAW);
+  gl.enableVertexAttribArray(pP);gl.vertexAttribPointer(pP,2,gl.FLOAT,false,16,0);
+  gl.enableVertexAttribArray(pS);gl.vertexAttribPointer(pS,1,gl.FLOAT,false,16,8);
+  gl.enableVertexAttribArray(pA);gl.vertexAttribPointer(pA,1,gl.FLOAT,false,16,12);
+  gl.uniform3f(uCo,.35,.42,.62);gl.uniform3f(uHa,.55,.62,.8);
+  gl.drawArrays(gl.POINTS,0,DUST);
+  gl.bindBuffer(gl.ARRAY_BUFFER,bufP);
+  gl.bufferData(gl.ARRAY_BUFFER,ptA,gl.DYNAMIC_DRAW);
+  gl.enableVertexAttribArray(pP);gl.vertexAttribPointer(pP,2,gl.FLOAT,false,16,0);
+  gl.enableVertexAttribArray(pS);gl.vertexAttribPointer(pS,1,gl.FLOAT,false,16,8);
+  gl.enableVertexAttribArray(pA);gl.vertexAttribPointer(pA,1,gl.FLOAT,false,16,12);
+  gl.uniform3f(uCo,.7,.53,.13);gl.uniform3f(uHa,.85,.72,.38);   /* 金箔 */
+  gl.drawArrays(gl.POINTS,0,N);
+ }else if(ctx2){
+  ctx2.clearRect(0,0,W,H);
+  function px(v){return (v+1)*.5*W;}function py(v){return (1-(v+1)*.5)*H;}
+  for(var l2=0;l2<links.length;l2+=3){var a2=links[l2],b2=links[l2+1],o2=links[l2+2];
+   ctx2.strokeStyle='rgba(41,59,107,'+(o2*.45)+')';
+   ctx2.lineWidth=1+sp[a2];ctx2.beginPath();
+   ctx2.moveTo(px(sx[a2]),py(sy[a2]));ctx2.lineTo(px(sx[b2]),py(sy[b2]));ctx2.stroke();}
+  for(i=0;i<N;i++){ctx2.beginPath();
+   ctx2.arc(px(sx[i]),py(sy[i]),ptA[i*4+2]/DPR*.5,0,TAU);
+   ctx2.fillStyle='rgba(169,127,38,'+ptA[i*4+3]+')';ctx2.fill();}}
+ if(!rm)requestAnimationFrame(frame);}
+frame();if(rm){/* 静止1フレームのみ */}
 })();
 </script></body></html>
