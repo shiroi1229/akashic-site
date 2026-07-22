@@ -9,5 +9,16 @@
   "duration": 5435,
   "source_ref": "personaforge/episode-source/novel/エピソード01_第1章.txt",
   "published_at": "2026-07-21T12:34:53+00:00"
+ },
+ {
+  "asset_id": "ast_7cb0d0a4319f",
+  "title": "第2章　ゼロ地と異邦人",
+  "description": "『アカシック・レコード 25xx』第2章　ゼロ地と異邦人の朗読劇。",
+  "file": "ast_7cb0d0a4319f.mp3",
+  "bytes": 72671652,
+  "mime": "audio/mpeg",
+  "duration": 6055,
+  "source_ref": "episode-source/novel/エピソード01_第2章.txt",
+  "published_at": "2026-07-22T12:18:06+00:00"
  }
 ]
