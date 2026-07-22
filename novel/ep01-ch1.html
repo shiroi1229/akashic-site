@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="第1章　始原の雪、知の種火｜アカシック・レコード 25xx">
 <meta name="twitter:description" content="退屈な聖域時は２５ＸＸ（２・５・エックス・エックス）年。世界はとうに崩壊し、文明の残骸が風に舞っている。それでも山は黙してそびえ、その頂――空に最も近き地に、ひとつの寺院が奇跡のように残されていた。空はどこまでも鈍く灰色に沈み、冷たい霧…">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "第1章　始原の雪、知の種火", "inLanguage": "ja", "url": "https://shiroi1229.github.io/akashic-site/novel/ep01-ch1.html", "datePublished": "2026-07-22T12:02:29+00:00", "author": {"@type": "Person", "name": "Shiroi Saga"}, "publisher": {"@type": "Organization", "name": "アカシック・レコード 25xx"}, "isPartOf": {"@type": "Book", "name": "アカシック・レコード 25xx", "url": "https://shiroi1229.github.io/akashic-site/novel/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "第1章　始原の雪、知の種火", "inLanguage": "ja", "url": "https://shiroi1229.github.io/akashic-site/novel/ep01-ch1.html", "datePublished": "2026-07-22T12:08:02+00:00", "author": {"@type": "Person", "name": "Shiroi Saga"}, "publisher": {"@type": "Organization", "name": "アカシック・レコード 25xx"}, "isPartOf": {"@type": "Book", "name": "アカシック・レコード 25xx", "url": "https://shiroi1229.github.io/akashic-site/novel/"}}</script>
 <style>
 :root{--bg:#f6f7fb;--ink:#14161f;--dim:#525a70;--faint:#9aa1b4;
 --gold:#a07a1e;--gold-b:#c9a24a;--indigo:#2c3c66;--line:rgba(26,36,64,.12);
@@ -48,9 +48,10 @@ background:rgba(255,255,255,.6);backdrop-filter:blur(8px);transition:background 
 .bar .yt:hover{background:var(--gold);color:#fff;}
 
 /* ---- HERO: 光の書庫(1画面完結) ---- */
-body.one{height:100vh;height:100svh;overflow:hidden;}
-.hero{position:relative;height:100vh;height:100svh;display:flex;flex-direction:column;
-justify-content:center;align-items:center;text-align:center;padding:0 5vw;z-index:1;gap:0;}
+/* 1画面設計だが、低い窓/高倍率ズームでは切り落とさずスクロール許可(内容を隠さない) */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;
+justify-content:center;align-items:center;text-align:center;
+padding:76px 5vw 40px;z-index:1;gap:0;}
 .hero .ghost{position:absolute;left:50%;top:50%;transform:translate(-50%,-54%);
 font-family:var(--serif);font-size:clamp(190px,34vw,430px);font-weight:600;line-height:1;
 color:transparent;-webkit-text-stroke:1px rgba(160,122,30,.28);letter-spacing:.02em;

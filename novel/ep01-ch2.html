@@ -48,9 +48,10 @@ background:rgba(255,255,255,.6);backdrop-filter:blur(8px);transition:background 
 .bar .yt:hover{background:var(--gold);color:#fff;}
 
 /* ---- HERO: 光の書庫(1画面完結) ---- */
-body.one{height:100vh;height:100svh;overflow:hidden;}
-.hero{position:relative;height:100vh;height:100svh;display:flex;flex-direction:column;
-justify-content:center;align-items:center;text-align:center;padding:0 5vw;z-index:1;gap:0;}
+/* 1画面設計だが、低い窓/高倍率ズームでは切り落とさずスクロール許可(内容を隠さない) */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;
+justify-content:center;align-items:center;text-align:center;
+padding:76px 5vw 40px;z-index:1;gap:0;}
 .hero .ghost{position:absolute;left:50%;top:50%;transform:translate(-50%,-54%);
 font-family:var(--serif);font-size:clamp(190px,34vw,430px);font-weight:600;line-height:1;
 color:transparent;-webkit-text-stroke:1px rgba(160,122,30,.28);letter-spacing:.02em;
