@@ -1,0 +1,18 @@
+{
+  "name": "AKASHIC RECORDS 25XX - Zero Ground Terminal",
+  "version": "1.0.0",
+  "release_date": "2026-09-06",
+  "hosting": "GitHub Pages",
+  "url": "https://shiroi1229.github.io/akashic-site/terminal/",
+  "openai_sites_deployed": false,
+  "baseline_commit": "45a201eb5ec6b134ff8e4af9eac28209ea706e14",
+  "scope": "Add terminal/ only; preserve existing root, novel and podcast pages.",
+  "files": {
+    "index.html": {"bytes": 45907, "sha256": "8bf24adacea96bd37f29fddfaa5b5b9a6fe911da3478aacea02613ae7928e663"},
+    "portrait.avif": {"bytes": 13959, "sha256": "5fb99e6ef17e5f54321caf8461bfe9adf597ccff5219704f945dbdc63f7236d2", "width": 640, "height": 857}
+  },
+  "ui_validation": {"passed": 42, "total": 42, "mode": "Chromium offline image fixtures; YouTube iframe transport stub", "viewport_widths": [1440, 1024, 768, 390, 320]},
+  "live_catalog_sync": false,
+  "gallery_video_ids": ["-gBohIMsN6Y", "3ffd8gOyC4U", "Q8kaczTH0a0"],
+  "notes": "Portrait derived from supplied reference; gallery uses the matching videos' current YouTube thumbnails. Real YouTube playback and physical device testing are not claimed."
+}
