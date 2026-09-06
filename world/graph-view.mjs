@@ -1,0 +1,56 @@
+import {buildGraph,graphView,projectNode,neighbor,separateLabels} from './graph-core.mjs';
+const shader=`struct VOut {@builtin(position) position:vec4f,@location(0) color:vec4f};
+@vertex fn vs(@location(0) position:vec2f,@location(1) color:vec4f)->VOut {var o:VOut;o.position=vec4f(position,0.,1.);o.color=color;return o;}
+@fragment fn fs(i:VOut)->@location(0) vec4f {return i.color;}`;
+const node=(tag,text)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;return e;};
+export function createSpatialGraph({shell,host,onSelect,useWorker=true}){
+ const life=new AbortController(),signal=life.signal;let data={nodes:[],edges:[]},view=graphView(),frame=0,worker=null,seq=0,disposed=false,visible=true,selected=null,visualNodes=[],list=false,autoList=false,device=null,ctx=null,pipe=null,buffer=null,bufferSize=0,mode='initializing',drag=null,workerTimer=0,workerCompleted=0;
+ let canvas=node('canvas');canvas.className='spatial-lines';canvas.setAttribute('aria-hidden','true');shell.prepend(canvas);shell.classList.add('spatial-graph');
+ shell.querySelector('#graph-lines')?.setAttribute('hidden','');shell.querySelector('.graph-center')?.setAttribute('hidden','');
+ const bar=node('div');bar.className='spatial-tools';const status=node('span','描画の準備中');status.setAttribute('role','status');status.className='renderer-state';
+ const button=(text,label,fn)=>{const b=node('button',text);b.type='button';b.setAttribute('aria-label',label);b.addEventListener('click',fn,{signal});bar.append(b);return b;};
+ button('−','関係図を縮小',()=>{view=graphView({...view,scale:view.scale*.85});paintSoon()});
+ button('＋','関係図を拡大',()=>{view=graphView({...view,scale:view.scale*1.18});paintSoon()});
+ button('原点','関係図の視点を戻す',()=>{view=graphView();paintSoon()});
+ const listButton=button('一覧','関係図と一覧を切り替える',()=>{const change=()=>{list=!list;shell.classList.toggle('list-mode',list);listButton.setAttribute('aria-pressed',String(list));paintSoon()};if(document.startViewTransition&&!document.body.classList.contains('still')&&!matchMedia('(prefers-reduced-motion:reduce)').matches)document.startViewTransition(change);else change();});listButton.setAttribute('aria-pressed','false');bar.append(status);shell.before(bar);
+ function backendLabel(){status.textContent=(mode==='webgpu'?'WebGPU':mode==='canvas2d'?'Canvas2D':mode==='dom'?'DOM':'準備中')+' / '+(worker?'Worker':'CPU')+(data.truncated?' / 先頭100件、全件は下の一覧へ':'');shell.dataset.renderer=mode;}
+ function fallback(){if(disposed)return;device?.destroy();device=null;buffer=null;bufferSize=0;const fresh=node('canvas');fresh.className=canvas.className;fresh.setAttribute('aria-hidden','true');canvas.replaceWith(fresh);canvas=fresh;ctx=canvas.getContext('2d');mode=ctx?'canvas2d':'dom';backendLabel();paintSoon();}
+ async function initGPU(){if(!navigator.gpu){fallback();return;}let candidate=null;try{
+  const adapter=await navigator.gpu.requestAdapter({powerPreference:'low-power'});if(!adapter)throw Error('no_adapter');candidate=await adapter.requestDevice();if(disposed){candidate.destroy();return;}candidate.pushErrorScope('validation');
+  const module=candidate.createShaderModule({code:shader});const info=await module.getCompilationInfo();if(info.messages.some(m=>m.type==='error'))throw Error('shader_invalid');
+  const format=navigator.gpu.getPreferredCanvasFormat();const context=canvas.getContext('webgpu');if(!context)throw Error('context_unavailable');
+  const pipeline=await candidate.createRenderPipelineAsync({layout:'auto',vertex:{module,entryPoint:'vs',buffers:[{arrayStride:24,attributes:[{shaderLocation:0,offset:0,format:'float32x2'},{shaderLocation:1,offset:8,format:'float32x4'}]}]},fragment:{module,entryPoint:'fs',targets:[{format,blend:{color:{srcFactor:'src-alpha',dstFactor:'one-minus-src-alpha'},alpha:{srcFactor:'one',dstFactor:'one-minus-src-alpha'}}}]},primitive:{topology:'line-list'}});
+  const error=await candidate.popErrorScope();if(error)throw Error('pipeline_invalid');if(disposed){candidate.destroy();return;}
+  context.configure({device:candidate,format,alphaMode:'premultiplied'});device=candidate;ctx=context;pipe=pipeline;mode='webgpu';device.lost.then(()=>{if(!disposed&&mode==='webgpu')fallback()});device.addEventListener('uncapturederror',()=>{if(mode==='webgpu')fallback()},{signal});backendLabel();paintSoon();
+ }catch{candidate?.destroy();fallback();}}
+ function draw(){frame=0;if(disposed||!visible||document.hidden)return;const w=shell.clientWidth,h=shell.clientHeight;if(!w||!h)return;
+  // Fixed-height capacity avoids ResizeObserver oscillation after list expansion.
+  const labelWidth=innerWidth<=640?105:Math.max(100,Math.min(142,innerWidth*.15));
+  autoList=data.nodes.length>Math.max(1,Math.floor(w/(labelWidth+12))*Math.floor(460/132));
+  const effectiveList=list||autoList;shell.classList.toggle('list-mode',effectiveList);shell.dataset.autoList=String(autoList);
+  listButton.setAttribute('aria-pressed',String(effectiveList));listButton.disabled=autoList;listButton.textContent=autoList?'一覧（画面幅に最適化）':list?'関係図':'一覧';
+  for(const b of [...bar.querySelectorAll('button')].slice(0,3))b.disabled=effectiveList;
+  if(effectiveList)return;
+  const d=Math.min(devicePixelRatio||1,1.5,Math.sqrt(2_000_000/(w*h)));const cw=Math.max(1,Math.round(w*d)),ch=Math.max(1,Math.round(h*d));if(canvas.width!==cw||canvas.height!==ch){canvas.width=cw;canvas.height=ch;}
+  const label=host.firstElementChild;const baseline=separateLabels(data.nodes.map(n=>projectNode(n,{},w,h)),w,h,label?.offsetWidth||105,label?.offsetHeight||64,10);visualNodes=data.nodes.map((n,i)=>({...n,x:(baseline[i].x-w/2)/(w*.42),y:(baseline[i].y-h/2)/(h*.42)}));const positions=visualNodes.map(n=>projectNode(n,view,w,h));[...host.children].forEach((b,i)=>{if(!positions[i])return;const p=positions[i];b.style.left=p.x+'px';b.style.top=p.y+'px';b.dataset.focus=String(selected===data.nodes[i].id);});
+  if(list)return;try{
+   if(mode==='canvas2d'){ctx.setTransform(d,0,0,d,0,0);ctx.clearRect(0,0,w,h);for(const[i,j]of data.edges){const a=positions[i],b=positions[j];ctx.strokeStyle=(selected===data.nodes[i].id||selected===data.nodes[j].id)?'rgba(229,184,94,.95)':'rgba(120,225,232,.45)';ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+   else if(mode==='webgpu'){
+    const values=[];for(const[i,j]of data.edges){const accent=selected===data.nodes[i].id||selected===data.nodes[j].id;const color=accent?[.9,.72,.37,.95]:[.47,.88,.91,.5];for(const n of [i,j])values.push(positions[n].x/w*2-1,1-positions[n].y/h*2,...color);}
+    const arr=new Float32Array(values);if(arr.byteLength>bufferSize){buffer?.destroy();bufferSize=Math.max(256,arr.byteLength);buffer=device.createBuffer({size:bufferSize,usage:GPUBufferUsage.VERTEX|GPUBufferUsage.COPY_DST});}if(arr.length)device.queue.writeBuffer(buffer,0,arr);
+    const encoder=device.createCommandEncoder();const pass=encoder.beginRenderPass({colorAttachments:[{view:ctx.getCurrentTexture().createView(),clearValue:{r:0,g:0,b:0,a:0},loadOp:'clear',storeOp:'store'}]});if(arr.length){pass.setPipeline(pipe);pass.setVertexBuffer(0,buffer);pass.draw(arr.length/6);}pass.end();device.queue.submit([encoder.finish()]);
+   }
+  }catch{if(mode==='webgpu')fallback();else{mode='dom';backendLabel();}}
+ }
+ function paintSoon(){if(!frame&&!disposed&&!document.hidden&&visible)frame=requestAnimationFrame(draw);}
+ function install(graph){data=graph;host.replaceChildren();for(const n of graph.nodes){const b=node('button');b.className='node';b.type='button';b.dataset.record=n.id;b.setAttribute('aria-label',n.title+'の記録を開く');const small=node('small',`CH.${n.chapter} / ${n.kind.toUpperCase()}`);b.append(small,node('span',n.title));b.addEventListener('click',()=>onSelect(n.id),{signal});b.addEventListener('focus',()=>{selected=n.id;const actual=visualNodes.find(v=>v.id===n.id)||n;const p=projectNode(actual,view,shell.clientWidth,shell.clientHeight);if(!list&&!autoList&&(p.x<70||p.x>shell.clientWidth-70||p.y<45||p.y>shell.clientHeight-45))view=graphView({...view,x:-actual.x*view.scale,y:-actual.y*view.scale});paintSoon()},{signal});b.addEventListener('keydown',e=>{const id=neighbor(visualNodes.length?visualNodes:data.nodes,n.id,e.key);if(!id)return;e.preventDefault();[...host.children].find(x=>x.dataset.record===id)?.focus()},{signal});host.append(b);}backendLabel();paintSoon();}
+ if(useWorker&&typeof Worker!=='undefined')try{worker=new Worker(new URL('./graph-worker.mjs',import.meta.url),{type:'module'});worker.onmessage=e=>{if(e.data.sequence===seq){clearTimeout(workerTimer);workerTimer=0;workerCompleted++;if(e.data.graph)install(e.data.graph);else{worker?.terminate();worker=null;install(buildGraph(lastRecords))}}};worker.onerror=()=>{clearTimeout(workerTimer);workerTimer=0;worker?.terminate();worker=null;install(buildGraph(lastRecords))};}catch{worker=null;}
+ let lastRecords=[];const update=records=>{lastRecords=records;seq++;if(worker){clearTimeout(workerTimer);const own=seq;workerTimer=setTimeout(()=>{if(disposed||own!==seq)return;worker?.terminate();worker=null;workerTimer=0;install(buildGraph(lastRecords));},2500);try{worker.postMessage({sequence:seq,records:records.slice(0,100),total:records.length});}catch{clearTimeout(workerTimer);workerTimer=0;worker?.terminate();worker=null;install(buildGraph(records));}}else install(buildGraph(records));};
+ shell.addEventListener('pointerdown',e=>{if(list||autoList||e.button!==0||e.target.closest('button'))return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,view:{...view}};shell.setPointerCapture(e.pointerId);},{signal});
+ shell.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;view=graphView({...view,x:drag.view.x+(e.clientX-drag.x)/(shell.clientWidth*.42),y:drag.view.y+(e.clientY-drag.y)/(shell.clientHeight*.42)});paintSoon();},{signal});
+ const release=()=>{drag=null};for(const type of ['pointerup','pointercancel','lostpointercapture'])shell.addEventListener(type,release,{signal});
+ shell.addEventListener('wheel',e=>{if(!e.ctrlKey||list||autoList)return;e.preventDefault();view=graphView({...view,scale:view.scale*Math.exp(-e.deltaY*.002)});paintSoon()},{signal,passive:false});
+ const resize=new ResizeObserver(paintSoon);resize.observe(shell);const observer=new IntersectionObserver(([e])=>{visible=e.isIntersecting;if(!visible){cancelAnimationFrame(frame);frame=0}else paintSoon()});observer.observe(shell);
+ document.addEventListener('visibilitychange',()=>{drag=null;if(document.hidden){cancelAnimationFrame(frame);frame=0}else paintSoon()},{signal});
+ initGPU();return {update,restore(value){if(disposed||!value||!value.view||typeof value.list!=='boolean')return false;view=graphView(value.view);list=value.list;shell.classList.toggle('list-mode',list);listButton.setAttribute('aria-pressed',String(list));paintSoon();return true;},getState:()=>({renderer:mode,worker:Boolean(worker),workerCompleted,view:{...view},nodes:data.nodes.length,edges:data.edges.length,list,autoList,scheduled:Boolean(frame),disposed}),dispose(){disposed=true;clearTimeout(workerTimer);life.abort();resize.disconnect();observer.disconnect();worker?.terminate();buffer?.destroy();device?.destroy();cancelAnimationFrame(frame);canvas.remove();bar.remove();host.replaceChildren();}};
+}

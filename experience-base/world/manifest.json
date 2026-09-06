@@ -1,0 +1,119 @@
+{
+  "schema": "akashic-world/v1",
+  "version": "0.3.2",
+  "name": "ZERO GROUND / WORLD EXPERIENCE",
+  "coordinates": {
+    "units": "m",
+    "up": "Y",
+    "handedness": "right"
+  },
+  "sourceSnapshot": "PJT-0080/canon_collection_20260904/C-001+C-002",
+  "assets": [
+    {
+      "id": "zerochi-exterior",
+      "kind": "still",
+      "path": "assets/zerochi-exterior-original.png",
+      "sha256": "f8ac6ca93b43be6dd0a6b594da8805320f528fcc42f2315173b8b2da14229760",
+      "bytes": 2305254,
+      "width": 1672,
+      "height": 941,
+      "mime": "image/png",
+      "sourceVerified": true,
+      "approval": {
+        "status": "approved",
+        "ref": "PJT-0080 / canon_collection_20260904 / C-001 / existing PASS; image-observation scope only"
+      }
+    },
+    {
+      "id": "zerochi-overhead",
+      "kind": "still",
+      "path": "assets/zerochi-overhead-original.png",
+      "sha256": "72676b0afa0b649f07030778a3c1110eaf7bd300a7b497df77d3444c97defc5a",
+      "bytes": 2907773,
+      "width": 1672,
+      "height": 941,
+      "mime": "image/png",
+      "sourceVerified": true,
+      "approval": {
+        "status": "approved",
+        "ref": "PJT-0080 / canon_collection_20260904 / C-002 / existing PASS; image-observation scope only"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "shell-exterior",
+      "title": "ゼロ地・外殻",
+      "subtitle": "ZERO GROUND / THE SHELL",
+      "mode": "still",
+      "assetId": "zerochi-exterior",
+      "approval": {
+        "status": "approved",
+        "ref": "PJT-0080 / canon_collection_20260904 / C-001 / existing PASS; image-observation scope only"
+      },
+      "note": "嵐の下に残る、ひとつの都市。現行正典の外観原画像を、そのまま観察する。",
+      "hotspots": [
+        {
+          "action": "inspect",
+          "coordinates": "image",
+          "x": 0.5,
+          "y": 0.19,
+          "label": "外殻の輪郭",
+          "text": "正面原画像 C-001 に描かれた外殻の輪郭。画像の外や地下形状は、この表示から補完していません。"
+        },
+        {
+          "action": "inspect",
+          "coordinates": "image",
+          "x": 0.51,
+          "y": 0.5,
+          "label": "内側の灯り",
+          "text": "原画像に描かれた都市の灯りを観察できます。施設の名称や稼働状態は推測していません。"
+        },
+        {
+          "action": "inspect",
+          "coordinates": "image",
+          "x": 0.17,
+          "y": 0.78,
+          "label": "外界",
+          "text": "原画像の外側の風景。ここから別の場所へ通じる経路や距離は、まだ確定していません。"
+        }
+      ]
+    },
+    {
+      "id": "lower-layer-4",
+      "title": "低層区 第4層",
+      "subtitle": "LOWER DISTRICT / LAYER 04",
+      "mode": "still",
+      "assetId": null,
+      "approval": {
+        "status": "pending"
+      },
+      "note": "場所の存在は既存コンソールから引継ぎ。空間・視点・原画像は未照合。",
+      "hotspots": []
+    },
+    {
+      "id": "supply-24h",
+      "title": "24H総合供給所",
+      "subtitle": "24H SUPPLY STATION",
+      "mode": "still",
+      "assetId": null,
+      "approval": {
+        "status": "pending"
+      },
+      "note": "既存設定の名称を保持。店内画像・生活音・移動経路は承認資料待ち。",
+      "hotspots": []
+    },
+    {
+      "id": "ranger-post",
+      "title": "遊撃隊詰所",
+      "subtitle": "RANGER POST",
+      "mode": "still",
+      "assetId": null,
+      "approval": {
+        "status": "pending"
+      },
+      "note": "既存設定の名称を保持。外観・内観・出入口を推測で追加しない。",
+      "hotspots": []
+    }
+  ]
+}

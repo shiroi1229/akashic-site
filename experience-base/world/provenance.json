@@ -1,0 +1,43 @@
+{
+  "schema": "akashic-canon-display/v1",
+  "version": "0.3.2",
+  "records": [
+    {
+      "canonId": "C-001",
+      "assetId": "zerochi-exterior",
+      "sha256": "f8ac6ca93b43be6dd0a6b594da8805320f528fcc42f2315173b8b2da14229760",
+      "bytes": 2305254,
+      "width": 1672,
+      "height": 941,
+      "existingGate": "PASS",
+      "scope": [
+        "front visual identity",
+        "silhouette",
+        "visible structural motifs"
+      ],
+      "originalBytesUnchanged": true,
+      "newCanonApprovalCreated": false
+    },
+    {
+      "canonId": "C-002",
+      "assetId": "zerochi-overhead",
+      "sha256": "72676b0afa0b649f07030778a3c1110eaf7bd300a7b497df77d3444c97defc5a",
+      "bytes": 2907773,
+      "width": 1672,
+      "height": 941,
+      "existingGate": "PASS",
+      "scope": [
+        "top-view visual identity",
+        "plan silhouette",
+        "radial/plan relationships"
+      ],
+      "originalBytesUnchanged": true,
+      "newCanonApprovalCreated": false
+    }
+  ],
+  "limits": [
+    "Static original-image observation, not free walking",
+    "Overhead image is a reference, not a second geographic location",
+    "No new canon approval, no publication approval implied"
+  ]
+}
