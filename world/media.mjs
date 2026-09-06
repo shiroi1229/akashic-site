@@ -12,7 +12,7 @@ function youtubeAPI(){
 }
 export function createRecordPlayer(host,status){
  let player=null,generation=0,timer=0,state='idle',videoId=null;
- function show(next,text){state=next;host.dataset.state=next;status.textContent=text;}
+ function show(next,text){state=next;host.dataset.state=next;status.textContent=text;host.dispatchEvent(new Event('akashic:mediachange'));}
  function close(){generation++;clearTimeout(timer);try{player?.destroy();}catch{}player=null;host.replaceChildren();show('idle','');videoId=null;}
  async function connect(record){
   close();if(record?.kind!=='video'||!/^[a-zA-Z0-9_-]{11}$/.test(record.videoId))return false;const own=generation;videoId=record.videoId;
