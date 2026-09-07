@@ -1,4 +1,4 @@
-/* 1.1 private design candidate: scoped, reversible visitor experience layer. */
+/* Progressive visitor design: scoped, reversible visitor experience layer. */
 html[data-modern]{--m-ink:#f2f0e9;--m-muted:#b7c0bd;--m-gold:#e4cf9f;--m-line:#c5d2cd28;--m-bg:#090e10;--m-sans:'Hiragino Kaku Gothic ProN','Yu Gothic','Noto Sans CJK JP',sans-serif;--m-serif:'Hiragino Mincho ProN','Yu Mincho','Noto Serif CJK JP',serif;scroll-padding-top:88px}
 html[data-modern] :focus-visible{outline:2px solid var(--m-gold);outline-offset:5px}
 html[data-modern=home] body{background:var(--m-bg);font-family:var(--m-sans)}

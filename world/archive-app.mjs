@@ -1,3 +1,5 @@
+import {installJourney} from './journey.mjs';
+import {approvedRecord} from './journey-core.mjs';
 import {createReader} from './reader.mjs';
 import {createRecordPlayer} from './media.mjs';
 import {terminalSession,SESSION_SCHEMA} from './session-core.mjs';
@@ -9,7 +11,8 @@ const reader=createReader(),recordPlayer=createRecordPlayer(document.querySelect
 const KEY='akashic-terminal-library-v1', prefsKey='akashic-terminal-motion-v1';
 let settleSession;const sessionReady=new Promise(resolve=>{settleSession=resolve});
 let catalog=null,selected=null,saved=[],visited=[],memoryOnly=false,toastTimer,animation=0;
-let state={query:'',kind:'all',chapter:1,savedOnly:false};let requestedChapter=1;
+let state={query:'',kind:'all',chapter:1,savedOnly:false};
+const journey=installJourney({reader,getRecords:()=>catalog?.records||[],getLimit:()=>state.chapter});window.akashicJourney=journey;let requestedChapter=1;
 const reduced=matchMedia('(prefers-reduced-motion:reduce)');
 let explicitMotion=null;try{explicitMotion=localStorage.getItem(prefsKey)}catch{memoryOnly=true}
 let motion=explicitMotion===null?!reduced.matches:explicitMotion==='on';
@@ -39,7 +42,7 @@ $('#record-share').addEventListener('click',async()=>{try{await navigator.clipbo
 $$('dialog').forEach(d=>d.addEventListener('close',()=>{const toast=d.querySelector('#toast');if(toast){document.body.append(toast);toast.hidden=true}}));
 $('#detail').addEventListener('cancel',()=>{clearPlayer();reader.close();});
 function closeDialog(dialog){if(dialog.id==='detail'){clearPlayer();reader.close();}dialog.close();}
-$$('[data-close]').forEach(b=>b.addEventListener('click',()=>closeDialog(document.getElementById(b.dataset.close))));$('#detail').addEventListener('close',()=>{clearPlayer();reader.close();selected=null;const q=urlStateParams();q.delete('record');setFragment(q)});
+$$('[data-close]').forEach(b=>b.addEventListener('click',()=>closeDialog(document.getElementById(b.dataset.close))));$('#detail').addEventListener('close',()=>{if($('#detail').open)return;clearPlayer();reader.close();selected=null;const q=urlStateParams();q.delete('record');setFragment(q)});
 // Keep keyboard focus within the active dialog, including reverse Tab at its first control.
 $$('dialog').forEach(d=>d.addEventListener('keydown',e=>{if(e.key!=='Tab')return;const controls=[...d.querySelectorAll('button,a[href],input,select,textarea,summary,[tabindex]')].filter(n=>!n.disabled&&n.tabIndex>=0&&n.getClientRects().length);const first=controls[0],last=controls.at(-1);if(!first)return;if(e.shiftKey&&(document.activeElement===first||!d.contains(document.activeElement))){e.preventDefault();last.focus()}else if(!e.shiftKey&&(document.activeElement===last||!d.contains(document.activeElement))){e.preventDefault();first.focus()}}));
 $$('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target!==d)return;const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeDialog(d)}));
@@ -65,12 +68,13 @@ document.querySelector('#offline-status').textContent='0.4拡張のオフライ�
 load();
 
 window.akashicArchiveSession={
- snapshot(){if(!catalog)return null;return terminalSession({schema:SESSION_SCHEMA,state,graph:spatialGraph.getState(),scrollY:window.scrollY,selected:selected?.id||null});},
+ async openRecord(id,{read=false}={}){if(!await sessionReady||!catalog)return false;const r=approvedRecord(catalog.records,id,state.chapter);if(!r)return false;reader.close();openRecord(r.id);if(read&&r.kind==='text')return await reader.open(r);return true;},
+ snapshot(){if(!catalog)return null;return terminalSession({schema:SESSION_SCHEMA,state,reading:reader.capturePosition(),graph:spatialGraph.getState(),scrollY:window.scrollY,selected:selected?.id||null});},
  async restore(value){
   let clean;try{clean=terminalSession(value)}catch{return false;}if(!await sessionReady||!catalog)return false;
   if(!Array.from($('#chapter').options).some(o=>Number(o.value)===clean.state.chapter))return false;
   state={...clean.state};$('#query').value=state.query;$('#chapter').value=String(state.chapter);render();spatialGraph.restore(clean.graph);
-  const record=catalog.records.find(r=>r.id===clean.selected&&r.chapter<=state.chapter);if(record)openRecord(record.id,{fromURL:true});
+  const record=catalog.records.find(r=>r.id===clean.selected&&r.chapter<=state.chapter);if(record)openRecord(record.id,{fromURL:true});if(clean.reading){const rr=approvedRecord(catalog.records,clean.reading.id,state.chapter);if(rr?.kind==='text'){if(!record)openRecord(rr.id,{fromURL:true});if(await reader.open(rr))reader.restorePosition(clean.reading);}}
   requestAnimationFrame(()=>requestAnimationFrame(()=>window.scrollTo({top:clean.scrollY,behavior:'instant'})));return true;
  }
 };

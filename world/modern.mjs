@@ -1,4 +1,4 @@
-// Private 1.1 experience refinement. Existing canonical gates and app APIs remain authoritative.
+// Progressive experience refinement. Existing canonical gates and app APIs remain authoritative.
 const root=document.documentElement,life=new AbortController(),signal=life.signal;
 const menu=document.querySelector('#experience-menu'),open=document.querySelector('#menu-open'),close=document.querySelector('#menu-close');
 if(menu&&open&&close){

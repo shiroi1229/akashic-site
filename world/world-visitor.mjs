@@ -9,7 +9,8 @@ export function enhanceWorld(world, app) {
  const $=s=>document.querySelector(s), stage=$('#stage');
  const archive=$('#archive-dialog'), frame=$('#archive-frame'), source=$('#source-dialog');
  let coverURL=null, sourceURL=null, sourceController=null, sourceSeq=0, disposed=false;
- let archiveHash='',archiveSession=null;
+ let archiveHash='',archiveSession=null,handoff=null;
+ function finishHandoff(ok){if(!handoff)return;clearTimeout(handoff.timer);const done=handoff.resolve;handoff=null;done(ok);}
  const archiveURL=new URL('./archive.html',import.meta.url);
  const trustedFrame=()=>{try{const u=new URL(frame.contentWindow.location.href);return frame.hasAttribute('src')&&u.origin===archiveURL.origin&&u.pathname===archiveURL.pathname;}catch{return false;}};
  const state={coverVerified:false,coverPreviewVerified:false,sourceAsset:null,sourceError:null,archiveLoads:0,terminalResumed:false};
@@ -18,11 +19,20 @@ export function enhanceWorld(world, app) {
  function returnFocus(){if(app.getState().location)stage.focus({preventScroll:true});}
  const openArchive=()=>{if(disposed)return;archive.showModal();frame.src=new URL('./archive.html'+archiveHash,import.meta.url).href;state.archiveLoads++;};
  const closeArchive=()=>{releaseFrame();archive.close();};
- const releaseFrame=()=>{try{const h=trustedFrame()?frame.contentWindow.location.hash:undefined;if(trustedFrame()){const value=frame.contentWindow.akashicArchiveSession?.snapshot();if(value)archiveSession=terminalSession(value);}if(typeof h==='string'&&h.length<=2048)archiveHash=h;}catch{}frame.removeAttribute('src');returnFocus();};
- const frameLoad=()=>{if(!trustedFrame())return;if(archiveSession){frame.contentWindow.akashicArchiveSession?.restore(archiveSession).then(ok=>{state.terminalResumed=ok}).catch(()=>{state.terminalResumed=false;});}try{frame.contentDocument?.addEventListener('keydown',e=>{if(e.key==='Escape'&&!frame.contentDocument.querySelector('dialog[open]')){e.preventDefault();closeArchive();}});}catch(_) { /* External frame navigation cannot control the parent. */ }};
+ const releaseFrame=()=>{finishHandoff(false);try{const h=trustedFrame()?frame.contentWindow.location.hash:undefined;if(trustedFrame()){const value=frame.contentWindow.akashicArchiveSession?.snapshot();if(value)archiveSession=terminalSession(value);}if(typeof h==='string'&&h.length<=2048)archiveHash=h;}catch{}frame.removeAttribute('src');returnFocus();};
+ const frameLoad=async()=>{if(!trustedFrame())return;const session=frame.contentWindow.akashicArchiveSession;if(!session)return;
+  try{if(archiveSession)state.terminalResumed=await session.restore(archiveSession);if(trustedFrame()&&handoff){const target=handoff;const ok=await session.openRecord(target.id,{read:target.read});if(target===handoff)finishHandoff(ok);}}catch{finishHandoff(false);}
+  if(trustedFrame())frame.contentDocument.addEventListener('keydown',e=>{if(e.key==='Escape'&&!frame.contentDocument.querySelector('dialog[open]')){e.preventDefault();closeArchive();}});
+ };
+ function openRecord(id,{read=false}={}){
+  if(disposed||typeof id!=='string'||!/^[a-zA-Z0-9_-]{1,160}$/.test(id))return Promise.resolve(false);
+  finishHandoff(false);return new Promise(resolve=>{handoff={id,read:read===true,resolve,timer:setTimeout(()=>finishHandoff(false),12000)};
+   if(archive.open&&trustedFrame()&&frame.contentWindow.akashicArchiveSession){const target=handoff;frame.contentWindow.akashicArchiveSession.openRecord(id,{read:target.read}).then(ok=>{if(target===handoff)finishHandoff(ok)}).catch(()=>finishHandoff(false));}else openArchive();
+  });
+ }
  $('#archive-open').addEventListener('click',openArchive);
  $('#archive-close').addEventListener('click',closeArchive);
- archive.addEventListener('close',releaseFrame);archive.addEventListener('cancel',releaseFrame);frame.addEventListener('load',frameLoad);
+ const afterArchiveClose=()=>{if(!archive.open)releaseFrame();};archive.addEventListener('close',afterArchiveClose);archive.addEventListener('cancel',releaseFrame);frame.addEventListener('load',frameLoad);
  async function loadSource(id){
   const asset=findAsset(id);if(disposed||!source.open||!isApproved(asset))return {ok:false,code:'source_unapproved'};
   sourceController?.abort();sourceController=new AbortController();const signal=sourceController.signal,seq=++sourceSeq;
@@ -41,7 +51,7 @@ export function enhanceWorld(world, app) {
  const openSource=()=>{if(disposed)return;source.showModal();loadSource('zerochi-exterior');};
  const closeSource=()=>source.close();
  const releaseSource=()=>{sourceController?.abort();sourceSeq++;if(sourceURL)URL.revokeObjectURL(sourceURL);sourceURL=null;$('#source-image').replaceChildren();state.sourceAsset=null;returnFocus();};
- $('#source-open').addEventListener('click',openSource);$('#source-close').addEventListener('click',closeSource);source.addEventListener('close',releaseSource);
+ $('#source-open').addEventListener('click',openSource);$('#source-close').addEventListener('click',closeSource);const afterSourceClose=()=>{if(!source.open)releaseSource();};source.addEventListener('close',afterSourceClose);
  const sourceClicks=[];document.querySelectorAll('[data-source]').forEach(b=>{const fn=()=>loadSource(b.dataset.source);b.addEventListener('click',fn);sourceClicks.push([b,fn]);});
  const togglePoints=()=>{const on=!stage.classList.contains('show-points');stage.classList.toggle('show-points',on);$('#toggle-points').setAttribute('aria-pressed',String(on));$('#toggle-points').textContent=on?'観察点を隠す':'観察点を表示';};
  $('#toggle-points').addEventListener('click',togglePoints);
@@ -60,5 +70,5 @@ export function enhanceWorld(world, app) {
  })();
  function hide(){if(document.hidden&&archive.open)archive.close();}
  document.addEventListener('visibilitychange',hide);
- return {coverReady,loadSource,getState:()=>({...state}),dispose(){disposed=true;coverController.abort();if(archive.open)archive.close();if(source.open)source.close();releaseSource();if(coverURL)URL.revokeObjectURL(coverURL);$('#entry-poster').replaceChildren();frame.removeAttribute('src');document.removeEventListener('visibilitychange',hide);$('#archive-open').removeEventListener('click',openArchive);$('#archive-close').removeEventListener('click',closeArchive);archive.removeEventListener('close',releaseFrame);archive.removeEventListener('cancel',releaseFrame);frame.removeEventListener('load',frameLoad);$('#source-open').removeEventListener('click',openSource);$('#source-close').removeEventListener('click',closeSource);source.removeEventListener('close',releaseSource);sourceClicks.forEach(([b,fn])=>b.removeEventListener('click',fn));$('#toggle-points').removeEventListener('click',togglePoints);$('#visit-exterior').removeEventListener('click',quickVisit);}};
+ return {coverReady,loadSource,openRecord,getState:()=>({...state}),dispose(){disposed=true;coverController.abort();if(archive.open)archive.close();if(source.open)source.close();releaseSource();if(coverURL)URL.revokeObjectURL(coverURL);$('#entry-poster').replaceChildren();frame.removeAttribute('src');document.removeEventListener('visibilitychange',hide);$('#archive-open').removeEventListener('click',openArchive);$('#archive-close').removeEventListener('click',closeArchive);archive.removeEventListener('close',afterArchiveClose);archive.removeEventListener('cancel',releaseFrame);frame.removeEventListener('load',frameLoad);$('#source-open').removeEventListener('click',openSource);$('#source-close').removeEventListener('click',closeSource);source.removeEventListener('close',afterSourceClose);sourceClicks.forEach(([b,fn])=>b.removeEventListener('click',fn));$('#toggle-points').removeEventListener('click',togglePoints);$('#visit-exterior').removeEventListener('click',quickVisit);}};
 }

@@ -1,4 +1,4 @@
-document.body.dataset.release='1.0.0';
+document.body.dataset.release='1.2.0';
 document.querySelectorAll('[data-terminal]').forEach(button=>button.addEventListener('click',()=>document.querySelector('#archive-open')?.click()));
 // Preserve an existing bookmarked entrance without fabricating camera movement.
 function legacyAnchor(){if(location.hash==='#records'&&window.worldVisitor&&!document.querySelector('#archive-dialog')?.open)document.querySelector('#archive-open')?.click();}
