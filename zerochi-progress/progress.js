@@ -19,8 +19,11 @@ async function refresh(){
   const response=await fetch(`current.json?t=${Date.now()}`,{cache:'no-store'});
   if(!response.ok)throw new Error('fetch');
   const data=await response.json();
-  if(data.schema!=='zerochi.public-progress.v1'||!Array.isArray(data.images)||data.images.length!==3)throw new Error('format');
-  snapshot=data;showView();
+  if(data.schema!=='zerochi.public-progress.v1'||!Array.isArray(data.images)||(data.images.length<3||data.images.length>4))throw new Error('format');
+  snapshot=data;
+  document.querySelectorAll('[data-view]').forEach(b=>{b.hidden=!data.images.some(item=>item.view===b.dataset.view);});
+  if(!data.images.some(item=>item.view===selected))selected='斜め';
+  showView();
   const time=document.getElementById('updated');time.dateTime=data.image_updated_at;time.textContent=new Intl.DateTimeFormat('ja-JP',{dateStyle:'medium',timeStyle:'short',timeZone:'Asia/Tokyo'}).format(new Date(data.image_updated_at))+' JST';
   document.getElementById('description').textContent=data.description;
   const list=document.getElementById('limitations');list.replaceChildren(...data.limitations.map(text=>{const li=document.createElement('li');li.textContent=text;return li;}));
