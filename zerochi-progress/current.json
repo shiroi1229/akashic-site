@@ -1,0 +1,31 @@
+{
+  "schema": "zerochi.public-progress.v1",
+  "revision": "fca023f78ee0980a1b9c",
+  "title": "ゼロ地 — 制作中の姿",
+  "status": "制作途中・正典再現の検証中",
+  "image_updated_at": "2026-09-08T03:59:54.060600+00:00",
+  "check_interval_seconds": 600,
+  "description": "正典上面図の主要帯4方向の観測位置を修正。外殻は直径4,000m・高さ800m。",
+  "limitations": [
+    "帯の位置合わせ段階。大型アーチの完成形ではありません。",
+    "中央冠・外周基部・門・内部都市は未完成です。",
+    "Blenderの実モデル画像。UEへの本番統合は未完了です。"
+  ],
+  "images": [
+    {
+      "view": "正面",
+      "url": "revisions/fca023f78ee0980a1b9c/front_corrected.png",
+      "sha256": "cd545fda836e18d2c0b5352475e6cd442799397924bfd295a89d3691334084a7"
+    },
+    {
+      "view": "上面",
+      "url": "revisions/fca023f78ee0980a1b9c/top_corrected.png",
+      "sha256": "52898c18200b367decf3dc3a8bf93c415a27152eff6151b190d4885790fb533d"
+    },
+    {
+      "view": "斜め",
+      "url": "revisions/fca023f78ee0980a1b9c/oblique_corrected.png",
+      "sha256": "fbc3d965d6de9ad63ed3287213090a1ad3bb502415f922d8be2905af9a07ca4e"
+    }
+  ]
+}
