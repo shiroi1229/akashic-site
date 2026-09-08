@@ -25,6 +25,9 @@ async function refresh(){
   if(!data.images.some(item=>item.view===selected))selected='斜め';
   showView();
   const time=document.getElementById('updated');time.dateTime=data.image_updated_at;time.textContent=new Intl.DateTimeFormat('ja-JP',{dateStyle:'medium',timeStyle:'short',timeZone:'Asia/Tokyo'}).format(new Date(data.image_updated_at))+' JST';
+  const progressTime=document.getElementById('progress-updated');
+  progressTime.dateTime=data.progress_updated_at||data.image_updated_at;progressTime.textContent=new Intl.DateTimeFormat('ja-JP',{dateStyle:'medium',timeStyle:'short',timeZone:'Asia/Tokyo'}).format(new Date(progressTime.dateTime))+' JST';
+  const notice=document.getElementById('review-notice');notice.textContent=data.notice||'';notice.hidden=!data.notice;
   document.getElementById('description').textContent=data.description;
   const list=document.getElementById('limitations');list.replaceChildren(...data.limitations.map(text=>{const li=document.createElement('li');li.textContent=text;return li;}));
   document.getElementById('poll-status').textContent='現在公開中の画像を表示しています。';
