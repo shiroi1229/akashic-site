@@ -1,39 +1,39 @@
 {
   "schema": "zerochi.public-progress.v1",
-  "revision": "5702988bd22bfbc557c3",
+  "revision": "69733976ab897b233c46",
   "title": "ゼロ地 — 制作中の姿",
   "status": "制作途中・正典再現の検証中",
-  "image_updated_at": "2026-09-10T12:00:24.246219+00:00",
-  "progress_updated_at": "2026-09-10T12:01:10.941197+00:00",
-  "notice": "透明外殻の内側に、正典画像で明確に見える同心円状・放射状の立体インフラを追加。地下や見えない構造は増やしていません。",
+  "image_updated_at": "2026-09-10T11:49:55.701926+00:00",
+  "progress_updated_at": "2026-09-10T11:50:24.152906+00:00",
+  "notice": "透明レビュー表示をさらに強化。外殻形状は変更せず、内部構造がより明確に透けて見える設定へ更新。",
   "check_interval_seconds": 600,
-  "description": "透明外殻の形状を固定したまま、中央部に3層の同心円デッキ、8方向の放射接続、周辺フレームを追加。追加137オブジェクト。S01は26棟・28経路・714サンプルで重複0・衝突0を再確認。",
+  "description": "外殻はAlpha 0.10 / Transmission 0.88へ。925区画の気密パネル接合線と下端環は不透明のまま保持し、透明外殻の輪郭と内部構造を同時に読めるようにした。S01監査も再実施。",
   "limitations": [
-    "今回の追加は正典画像で見える構成を写したPROVISIONAL_VISIBLE_TRACEで、寸法はまだ正典確定値ではありません。",
-    "中央コアの細部・建物のシルエット・外周基壇は引き続き正典比較が必要です。",
-    "見えない地下形状は推定扱いのままで、今回追加していません。",
-    "正典3Dとしての最終採用前です。"
+    "正典3D最終採用前。",
+    "外殻Geometryは不変。今回の外殻変更は表示マテリアルのみ。",
+    "中央コア・内部密度・地下推定は引き続き正典採用前。",
+    "UE最終ナビゲーション・PS5品質検証は未完了。"
   ],
   "images": [
     {
       "view": "正面",
-      "url": "revisions/5702988bd22bfbc557c3/front_corrected.png",
-      "sha256": "4842e2c3c5849962a151ec718eae83552a435af51b55d493f28a68b1c81e1841"
+      "url": "revisions/69733976ab897b233c46/front_corrected.png",
+      "sha256": "8609f8d9a959dd0c35f62ee9a2f30cbf0647ef0a22d28cbc513bac06e1463451"
     },
     {
       "view": "上面",
-      "url": "revisions/5702988bd22bfbc557c3/top_corrected.png",
-      "sha256": "be980a55fbd54d2b221dd9d500bd7ca799f8a1ffa63e72810f602045ebe6ab6a"
+      "url": "revisions/69733976ab897b233c46/top_corrected.png",
+      "sha256": "fabb13814e10fc1ef38697dc9250a28a0938560f1fd58321c69fcb2d556f3b6a"
     },
     {
       "view": "斜め",
-      "url": "revisions/5702988bd22bfbc557c3/oblique_corrected.png",
-      "sha256": "efe0714341e0b75b6bccdc61c623fcd8bf41e4f9d72f5a7f7f91f123251e4898"
+      "url": "revisions/69733976ab897b233c46/oblique_corrected.png",
+      "sha256": "37c1c1f398b0f8f9485e41bbed60165f460dd6957057118816cf860b6a868933"
     },
     {
       "view": "中央冠",
-      "url": "revisions/5702988bd22bfbc557c3/crown_closeup.png",
-      "sha256": "7dd0a44982cf7a11a2b2d5b1d7a7f5f40e5d90e5e7429ad78bc462d65cb97c31"
+      "url": "revisions/69733976ab897b233c46/crown_closeup.png",
+      "sha256": "d90a80e8304a970bac4dfdaab4631f0e704296533910b333a6bea8163db40323"
     }
   ]
 }
