@@ -32,6 +32,29 @@ jobs:
             const coredemo = require('@actions/core')
             return await coredemo.getIDToken()
           result-encoding: string
+      - name: Prepare Azure static artifact
+        shell: bash
+        run: |
+          rm -rf .azure-dist
+          mkdir -p .azure-dist
+          rsync -a \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude '.azure-dist' \
+            --exclude 'podcast/episodes/*.mp3' \
+            ./ .azure-dist/
+          python3 - <<'PY2'
+          from pathlib import Path
+          p = Path('.azure-dist/podcast/index.html')
+          s = p.read_text()
+          s = s.replace('src="episodes/ast_7cb0d0a4319f.mp3"', 'src="https://shiroi1229.github.io/akashic-site/podcast/episodes/ast_7cb0d0a4319f.mp3"')
+          s = s.replace('src="episodes/ast_260d9ecc53a8.mp3"', 'src="https://shiroi1229.github.io/akashic-site/podcast/episodes/ast_260d9ecc53a8.mp3"')
+          p.write_text(s)
+          PY2
+          test -f .azure-dist/index.html
+          test ! -e .azure-dist/podcast/episodes/ast_260d9ecc53a8.mp3
+          test ! -e .azure-dist/podcast/episodes/ast_7cb0d0a4319f.mp3
+          du -sh .azure-dist
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -41,7 +64,7 @@ jobs:
           github_id_token: ${{ steps.idtoken.outputs.result }}
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/" # App source code path
+          app_location: "/.azure-dist" # Prepared static artifact
           api_location: "" # Api source code path - optional
           output_location: "" # No build output directory: repository root is the deploy artifact
           skip_app_build: true # This repository is already-built static HTML/CSS/JS
